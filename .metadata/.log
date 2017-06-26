@@ -1,0 +1,84 @@
+!SESSION 2017-06-26 11:47:52.959 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-06-26 11:48:36.032
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Oscar'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.sybase.stf.powerdesigner.eclipse 4 0 2017-06-26 11:49:40.726
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in com.sybase.stf.powerdesigner.eclipse.Plugin.stop() of bundle com.sybase.stf.powerdesigner.eclipse.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:850)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:946)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:314)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
+	at org.eclipse.osgi.container.Module.stop(Module.java:498)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1580)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:270)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:147)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
+	at org.eclipse.osgi.container.Module.stop(Module.java:498)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:202)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:165)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NoSuchMethodError: org.eclipse.swt.internal.ole.win32.COM.CoCreateInstance(Lorg/eclipse/swt/internal/ole/win32/GUID;IILorg/eclipse/swt/internal/ole/win32/GUID;[I)I
+	at com.sybase.stf.powerdesigner.eclipse.PdShell$1.run(Unknown Source)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at com.sybase.stf.powerdesigner.eclipse.PdShell.<init>(Unknown Source)
+	at com.sybase.stf.powerdesigner.eclipse.PdShell.getInstance(Unknown Source)
+	at com.sybase.stf.powerdesigner.eclipse.Plugin$2.start(Unknown Source)
+	at com.sybase.stf.powerdesigner.PdPlugout.Plugout.start(Plugout.java:54)
+	at com.sybase.stf.powerdesigner.PdPlugout.Plugout.<init>(Plugout.java:31)
+	at com.sybase.stf.powerdesigner.PdPlugout.Plugout.getInstance(Plugout.java:42)
+	at com.sybase.stf.powerdesigner.jal.ui.AddInMenuProvider.connect(Unknown Source)
+	at com.sybase.stf.powerdesigner.jal.ui.AddInMenuProvider.<init>(Unknown Source)
+	at com.sybase.stf.powerdesigner.jal.ui.AddInMenuProvider.getInstance(Unknown Source)
+	at com.sybase.stf.powerdesigner.eclipse.Plugin.removePDMenus(Unknown Source)
+	at com.sybase.stf.powerdesigner.eclipse.Plugin.stop(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:823)
+	... 13 more
+Root exception:
+java.lang.NoSuchMethodError: org.eclipse.swt.internal.ole.win32.COM.CoCreateInstance(Lorg/eclipse/swt/internal/ole/win32/GUID;IILorg/eclipse/swt/internal/ole/win32/GUID;[I)I
+	at com.sybase.stf.powerdesigner.eclipse.PdShell$1.run(Unknown Source)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at com.sybase.stf.powerdesigner.eclipse.PdShell.<init>(Unknown Source)
+	at com.sybase.stf.powerdesigner.eclipse.PdShell.getInstance(Unknown Source)
+	at com.sybase.stf.powerdesigner.eclipse.Plugin$2.start(Unknown Source)
+	at com.sybase.stf.powerdesigner.PdPlugout.Plugout.start(Plugout.java:54)
+	at com.sybase.stf.powerdesigner.PdPlugout.Plugout.<init>(Plugout.java:31)
+	at com.sybase.stf.powerdesigner.PdPlugout.Plugout.getInstance(Plugout.java:42)
+	at com.sybase.stf.powerdesigner.jal.ui.AddInMenuProvider.connect(Unknown Source)
+	at com.sybase.stf.powerdesigner.jal.ui.AddInMenuProvider.<init>(Unknown Source)
+	at com.sybase.stf.powerdesigner.jal.ui.AddInMenuProvider.getInstance(Unknown Source)
+	at com.sybase.stf.powerdesigner.eclipse.Plugin.removePDMenus(Unknown Source)
+	at com.sybase.stf.powerdesigner.eclipse.Plugin.stop(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:823)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:946)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:314)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
+	at org.eclipse.osgi.container.Module.stop(Module.java:498)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1580)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:270)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:147)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
+	at org.eclipse.osgi.container.Module.stop(Module.java:498)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:202)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:165)
+	at java.lang.Thread.run(Unknown Source)
