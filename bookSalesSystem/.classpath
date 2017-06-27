@@ -13,5 +13,10 @@
 	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/mysql-connector-java-5.0.4-bin.jar"/>
 	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/SmartUpload.jar"/>
 	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib/javax.servlet.jsp.jstl.jar"/>
+	<classpathentry kind="lib" path="lib/jstl-impl-1.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.0.4-bin.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib/SmartUpload.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
