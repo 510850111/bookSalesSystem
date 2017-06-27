@@ -8,5 +8,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/javax.servlet.jsp.jstl.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/jstl-impl-1.2.2.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/mysql-connector-java-5.0.4-bin.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/SmartUpload.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
