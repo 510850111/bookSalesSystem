@@ -1,0 +1,24 @@
+<html>
+	<title>
+		HelloWorld!
+	</title>
+	<body>
+		<script src="assets/js/jquery-1.10.2.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<script src="assets/js/custom.js"></script>
+		<script>
+				$.ajax({
+					type:"GET",
+					url:"lcalhost:8080/pages/BookServlet/getAllBooks",
+					success(function(data){
+						alert(data);
+					}),
+					error(function(e){
+						alert(e);
+					})
+				})
+			
+		</script>
+	</body>
+</html>
