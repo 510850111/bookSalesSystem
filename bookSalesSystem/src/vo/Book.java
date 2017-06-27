@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Book implements Serializable{
 	private int bid;
+	private String bookName;
 	private int price;
 	private String img;
 	private String author;
@@ -132,6 +133,12 @@ public class Book implements Serializable{
 	 */
 	public void setSurplus(int surplus) {
 		this.surplus = surplus;
+	}
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
 	}
 	
 }
