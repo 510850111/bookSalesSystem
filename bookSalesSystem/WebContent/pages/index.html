@@ -1,25 +1,23 @@
 <html>
-	<title>
-		HelloWorld!
-	</title>
-	<body id="body">
+<title>HelloWorld!</title>
+<body id="body">
 	123
-		<script src="assets/js/jquery-1.10.2.js"></script>
-		<script src="assets/js/bootstrap.js"></script>
-		<script src="assets/js/jquery.metisMenu.js"></script>
-		<script>
-				$.ajax({
-					type:"GET",
-					url:"http://localhost:8080/bookSalesSystem/pages/BookServlet/getAllBooks",
-					success:function(data){
-						console.log("success"+data);
+	<script src="assets/js/jquery-1.10.2.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/jquery.metisMenu.js"></script>
+	<script>
+		$
+				.ajax({
+					type : "GET",
+					url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/getAllBooks",
+					success : function(data) {
+						console.log("success" + data);
 						document.write(data);
 					},
-					error:function(e){
-						console.log("failed"+JSON.stringify(e));
+					error : function(e) {
+						console.log("failed" + JSON.stringify(e));
 					}
 				})
-			
-		</script>
-	</body>
+	</script>
+</body>
 </html>
