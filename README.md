@@ -4,6 +4,7 @@
 关键字段:
 
   book:
+  
     (int)     bid;
     
     (String)  bookName;
@@ -31,6 +32,7 @@
     (String)  categoryName;
 
 前端接口:
+
     getAllBooks() 
     
       返回:list
@@ -58,7 +60,9 @@
         
     getBooksBySplite(int index,int num);//根据index和splite返回书籍
     
-      返回:map/list
+      返回:
+      
+       map/list
       
           (int)     bid;
           
@@ -148,3 +152,11 @@
                 (String)  categoryName;
                 
                 (String)  url;
+                
+      
+      login(String userName , String password);
+        参数 :	username	
+		参数 :	password(需要加密) 
+		
+		
+		
