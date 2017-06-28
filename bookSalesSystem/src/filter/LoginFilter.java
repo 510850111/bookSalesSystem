@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-@WebFilter(filterName = "LoginFilter",urlPatterns = {"login.jsp"})
+//@WebFilter(filterName = "LoginFilter",urlPatterns = {"login.jsp"})
 public class LoginFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

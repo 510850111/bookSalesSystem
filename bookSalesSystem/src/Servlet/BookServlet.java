@@ -11,8 +11,7 @@ import vo.Book;
 import java.io.IOException;
 import java.util.*;
 
-@SuppressWarnings("serial")
-@WebServlet(name = "BookServlet", urlPatterns = "/pages/BookServlet/*")
+@WebServlet(name = "BookServlet", urlPatterns = "*")
 public class BookServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

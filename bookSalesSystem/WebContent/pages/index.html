@@ -2,26 +2,30 @@
 	<title>
 		HelloWorld!
 	</title>
-	<body>
+	<body id = "body">
+	<button onclick = "a()">aaaa</button>
 		<script src="assets/js/jquery-1.10.2.js"></script>
 		<script src="assets/js/bootstrap.js"></script>
 		<script src="assets/js/jquery.metisMenu.js"></script>
 		<script src="assets/js/custom.js"></script>
 		<script>
-				$.ajax({
-					type:"GET",
-<<<<<<< HEAD
-					url:"lcalhost:8080/pages/BookServlet/getAllBooks",
-=======
-					url:"localhost:8080/pages/BookServlet/getAllBooks",
->>>>>>> 33c319eabcfe95ddce1219e89ee0ddb6a81558b4
-					success(function(data){
-						alert(data);
-					}),
-					error(function(e){
-						alert(e);
+				function a(){
+					alert("a()");
+					$.ajax({
+						type:"GET",
+
+						url:"127.0.0.1:8080/pages/BookServlet/getAllBooks",
+
+						success:function(data){
+							console.log("sccess:"+data.toString());
+							
+						},
+						error:function(e){
+							console.log("failed:"+e.Strify());
+							
+						}
 					})
-				})
+				}
 			
 		</script>
 	</body>
