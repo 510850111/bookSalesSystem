@@ -2,36 +2,15 @@
 	<title>
 		HelloWorld!
 	</title>
-<<<<<<< HEAD
-	<body id = "body">
-	<button onclick = "a()">aaaa</button>
-=======
+
 	<body id="body">
 	123
->>>>>>> a121398e74acc65ad9c3de790276a9a6e4ce40c7
+
 		<script src="assets/js/jquery-1.10.2.js"></script>
 		<script src="assets/js/bootstrap.js"></script>
 		<script src="assets/js/jquery.metisMenu.js"></script>
 		<script>
-<<<<<<< HEAD
-				function a(){
-					alert("a()");
-					$.ajax({
-						type:"GET",
 
-						url:"127.0.0.1:8080/pages/BookServlet/getAllBooks",
-
-						success:function(data){
-							console.log("sccess:"+data.toString());
-							
-						},
-						error:function(e){
-							console.log("failed:"+e.Strify());
-							
-						}
-					})
-				}
-=======
 				$.ajax({
 					type:"GET",
 					url:"http://localhost:8080/bookSalesSystem/pages/BookServlet/getAllBooks",
@@ -43,7 +22,7 @@
 						console.log("failed"+JSON.stringify(e));
 					}
 				})
->>>>>>> a121398e74acc65ad9c3de790276a9a6e4ce40c7
+
 			
 		</script>
 	</body>
