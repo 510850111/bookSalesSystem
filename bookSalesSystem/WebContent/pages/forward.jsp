@@ -13,7 +13,7 @@
 </head>
 <body>
 <script type="text/javascript">
-  	window.alert("${msg}") ;
+  	window.alert("${bid}"+"${bookName}"+"${url}") ;
 
     window.location = "<%=basePath%>${url}" ;
 </script>

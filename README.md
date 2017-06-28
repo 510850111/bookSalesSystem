@@ -1,4 +1,4 @@
-# bookSalesSystem
+﻿# bookSalesSystem
 这是小学期的图书销售系统项目
 
 关键字段:
@@ -155,8 +155,60 @@
                 
       
       login(String userName , String password);
-        参数 :	username	
-		参数 :	password(需要加密) 
+
+	参数 :	username	
+
+	参数 :	password(需要加密) 
+
+	加密方式:RSA(userName + password)
+
+	返回:
+
+		status	: true / false		
+
+		url
 		
+    register(String userName,String password,String phoneNumber);
+	
+	参数 :	username	
+
+	参数 :	password(需要加密) 
+
+	参数 :	phoneNumber
+
+	加密方式:RSA(userName + password)
+
+	返回:
+
+		status	: true / false		
+
+		url
+    
+    validMessage(String phoneNumber,String validCode);
+	
+	参数 :	phoneNumber
+
+	参数 :	validCode(一般是4-6位短信验证码) 
+	
+	返回 : 
+
+		status : true / false
+
+
+    changePassword(String userName,oldPassword,newPassword);
+
+	参数 :	userName(邮箱/手机号)
+	
+	参数 :	oldPassword(需要加密) 
+
+	参数 :	newPassword(需要加密) 
+
+	加密方式:RSA(userName + password)
+
+	返回 :	
 		
-		
+		status : true / false
+
+		url
+
+   

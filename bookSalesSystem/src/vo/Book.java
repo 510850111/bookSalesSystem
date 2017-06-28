@@ -13,6 +13,7 @@ public class Book implements Serializable{
 	private String detail;
 	private int surplus;
 	private String categoryName;
+	private String bookName;
 	/**
 	 * @return the bid
 	 */
@@ -132,6 +133,18 @@ public class Book implements Serializable{
 	 */
 	public void setSurplus(int surplus) {
 		this.surplus = surplus;
+	}
+	/**
+	 * @return the bookName
+	 */
+	public String getBookName() {
+		return bookName;
+	}
+	/**
+	 * @param bookName the bookName to set
+	 */
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
 	}
 	
 }

@@ -2,21 +2,22 @@
 	<title>
 		HelloWorld!
 	</title>
-	<body>
+	<body id="body">
+	123
 		<script src="assets/js/jquery-1.10.2.js"></script>
 		<script src="assets/js/bootstrap.js"></script>
 		<script src="assets/js/jquery.metisMenu.js"></script>
-		<script src="assets/js/custom.js"></script>
 		<script>
 				$.ajax({
 					type:"GET",
-					url:"localhost:8080/pages/BookServlet/getAllBooks",
-					success(function(data){
-						alert(data);
-					}),
-					error(function(e){
-						alert(e);
-					})
+					url:"http://localhost:8080/bookSalesSystem/pages/BookServlet/getAllBooks",
+					success:function(data){
+						console.log("success"+data);
+						document.write(data);
+					},
+					error:function(e){
+						console.log("failed"+JSON.stringify(e));
+					}
 				})
 			
 		</script>
