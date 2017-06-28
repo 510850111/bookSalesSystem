@@ -14,6 +14,7 @@ public class Book implements Serializable{
 	private String detail;
 	private int surplus;
 	private String categoryName;
+	private String bookName;
 	/**
 	 * @return the bid
 	 */
@@ -134,9 +135,21 @@ public class Book implements Serializable{
 	public void setSurplus(int surplus) {
 		this.surplus = surplus;
 	}
+<<<<<<< HEAD
 	public String getBookName() {
 		return bookName;
 	}
+=======
+	/**
+	 * @return the bookName
+	 */
+	public String getBookName() {
+		return bookName;
+	}
+	/**
+	 * @param bookName the bookName to set
+	 */
+>>>>>>> a121398e74acc65ad9c3de790276a9a6e4ce40c7
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
 	}

@@ -11,7 +11,12 @@ import vo.Book;
 import java.io.IOException;
 import java.util.*;
 
+<<<<<<< HEAD
 @WebServlet(name = "BookServlet", urlPatterns = "*")
+=======
+@SuppressWarnings("serial")
+@WebServlet(name = "BookServlet", urlPatterns = "/pages/BookServlet/*")
+>>>>>>> a121398e74acc65ad9c3de790276a9a6e4ce40c7
 public class BookServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,7 +65,13 @@ public class BookServlet extends HttpServlet {
     	request.setAttribute("categoryName", vo.getCategoryName());
     	
     	String msg="";
+<<<<<<< HEAD
     	String url="";
+=======
+    	String url="/pages/index.html";
+    	
+    	request.setAttribute("url", url);
+>>>>>>> a121398e74acc65ad9c3de790276a9a6e4ce40c7
     
     	
 		return "/pages/forward.jsp";
@@ -73,6 +84,7 @@ public class BookServlet extends HttpServlet {
 }
 
 
+<<<<<<< HEAD
 /*
  * 
  * url : "localhost : 8080/pages/BookServlet/getAllBooks"
@@ -80,3 +92,5 @@ public class BookServlet extends HttpServlet {
  * */
 
 
+=======
+>>>>>>> a121398e74acc65ad9c3de790276a9a6e4ce40c7
