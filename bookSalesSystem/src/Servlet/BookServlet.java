@@ -5,6 +5,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import factory.ServiceFactory;
 import vo.Book;
 
 import java.io.IOException;
@@ -47,6 +49,13 @@ public class BookServlet extends HttpServlet {
     	response.setContentType("application/json; charset=utf-8");  
     	String msg="";
     	String url="/pages/index.html";
+    	try{
+    		List<Book> data=null;
+    		data=ServiceFactory.getIBookServiceInstance().getAllBooks();
+    		request.setAttribute("data", data);
+    	}catch(Exception e){
+    			e.printStackTrace();
+    	}
     	request.setAttribute("url", url);	
 		return "/pages/forward.jsp";
 
@@ -59,6 +68,7 @@ public class BookServlet extends HttpServlet {
     	String msg="";
     	String url="/pages/index.html";
     	request.setAttribute("url", url);	
+    	
 		return "/pages/forward.jsp";
 		
 		

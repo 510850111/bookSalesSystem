@@ -77,4 +77,15 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 		return null;
 	}
 
+	@Override
+	public List<Book> getAllBooks() throws Exception {
+		List<Book> data=new ArrayList<>();
+		Book book=new Book();
+		book.setBid(0);
+		book.setBookName("ABC");
+		data.add(book);
+		// TODO Auto-generated method stub
+		return data;
+	}
+
 }

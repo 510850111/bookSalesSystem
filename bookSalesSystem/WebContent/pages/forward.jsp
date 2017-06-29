@@ -12,7 +12,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-  	window.alert("${bid}"+"${bookName}"+"${url}") ;
+  	window.alert("${data.bid}"+"${data.bookName}"+"${bookName}"+"${url}") ;
 
     window.location = "<%=basePath%>
 		${url}";
