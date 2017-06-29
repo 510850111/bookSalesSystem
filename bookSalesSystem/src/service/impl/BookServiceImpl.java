@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.List;
+
 import com.mysql.jdbc.Connection;
 
 import dbc.DatabaseConnection;
@@ -18,4 +20,25 @@ public class BookServiceImpl {
             this.dbc.close();
         }
     }
+    
+    public boolean getad(Book vo) throws Exception {
+        try {
+            return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getad(vo);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.dbc.close();
+        }
+    }
+    
+    public List<Book> getAllBooks() throws Exception {
+        try {
+            return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getAllBooks();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.dbc.close();
+        }
+    }
+    
 }

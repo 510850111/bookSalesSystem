@@ -28,6 +28,13 @@ public interface IBookDao extends IDAO<Integer,Book> {
      * @throws Exception
      */
     public List<Book> purchaseList(String aid) throws Exception;
+    
+    /**
+     * 获取所有图书
+     * @return List
+     * @throws Exception
+     */
+    public List<Book> getAllBooks() throws Exception;
 
 
 
