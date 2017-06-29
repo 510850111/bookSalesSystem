@@ -2,12 +2,15 @@
 	<title>
 		HelloWorld!
 	</title>
+
 	<body id="body">
 	123
+
 		<script src="assets/js/jquery-1.10.2.js"></script>
 		<script src="assets/js/bootstrap.js"></script>
 		<script src="assets/js/jquery.metisMenu.js"></script>
 		<script>
+
 				$.ajax({
 					type:"GET",
 					url:"http://localhost:8080/bookSalesSystem/pages/BookServlet/getAllBooks",
@@ -19,6 +22,7 @@
 						console.log("failed"+JSON.stringify(e));
 					}
 				})
+
 			
 		</script>
 	</body>
