@@ -3,7 +3,7 @@
 
 关键字段:
 
-  book:
+#  book:
   
     (int)     bid;
     
@@ -33,7 +33,7 @@
 
 前端接口:
 
-    getAllBooks() 
+#    getAllBooks() 
     
       返回:list
       
@@ -58,7 +58,7 @@
           (String)  categoryName;
           
         
-    getBooksBySplite(int index,int num);//根据index和splite返回书籍
+#    getBooksBySplite(int index,int num);//根据index和splite返回书籍
     
       返回:
       
@@ -84,14 +84,14 @@
           
           (String)  categoryName;
     
-    getCategory();//获取分类
+#    getCategory();//获取分类
     
         返回list
         
           (String)  categoryName;
           
     
-    getAD();
+#    getAD();
     
         返回list
         
@@ -99,7 +99,7 @@
           
           (String)    url(url);
           
-    getHotBooks();
+#    getHotBooks();
     
         返回list
         
@@ -113,7 +113,7 @@
             
             (String)  abstract;
             
-    shopCart(int num);
+#    shopCart(int num);
     
         参数:num = 1;
         
@@ -127,7 +127,7 @@
             
     logout();
      
-    search(String keyWord);
+#    search(String keyWord);
     
         参数 : keyWord
         
@@ -154,7 +154,7 @@
                 (String)  url;
                 
       
-      login(String userName , String password);
+#      login(String userName , String password);
 
 	参数 :	username	
 
@@ -168,7 +168,7 @@
 
 		url
 		
-    register(String userName,String password,String phoneNumber);
+#    register(String userName,String password,String phoneNumber);
 	
 	参数 :	username	
 
@@ -184,7 +184,7 @@
 
 		url
     
-    validMessage(String phoneNumber,String validCode);
+#    validMessage(String phoneNumber,String validCode);
 	
 	参数 :	phoneNumber
 
@@ -195,7 +195,7 @@
 		status : true / false
 
 
-    changePassword(String userName,oldPassword,newPassword);
+#    changePassword(String userName,oldPassword,newPassword);
 
 	参数 :	userName(邮箱/手机号)
 	
