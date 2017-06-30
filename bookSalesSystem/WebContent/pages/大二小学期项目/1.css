@@ -1,0 +1,313 @@
+﻿/*
+	ie 7 css
+*/
+	.urun {margin:3px}
+	#manset .bx-prev , #manset .bx-next {top:310px}
+
+/*
+	ie 8 css
+*/
+
+
+/*
+	ie 9 css
+*/
+
+	
+
+/*
+	http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+:focus {outline: none}
+a {text-decoration:none;padding:0;margin:0;}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.bn {background:none!important}
+.temizle {clear:both}
+
+@charset "UTF-8";
+@import url('reset.css');
+/*	
+	@r10.net
+	technic
+*/
+
+	body {margin:auto;background:url(img/bg.jpg) repeat-x;font:12px Arial}
+		
+		/*	Genel	*/
+		#genel {width:960px;margin:0 auto;position:relative}
+			/*	Header	*/
+			#header {height:88px}
+				/*	Logo	*/
+				#logo {float:left}
+				/*	Sepet	*/
+				#sepet {width:612px;height:63px;background:url(img/sepet-bg.png);float:right;margin-top:8px}
+					/*	Sepet Sol	*/
+					.sSol {float:left;position:relative;width:400px}
+					.sepetDetay {margin:14px 55px;}
+					.sepetDetay span , .sepetDetay strong {display:block;font-size:11px}
+					.sepetDetay span {border-bottom:1px dashed #769aa9;color:#ffbe0e;padding-bottom:3px;width:280px}
+					.sepetDetay span i {color:#ffd800;font-weight:bold}
+					.sepetDetay strong {color:#fff;padding-top:3px}
+					.sepetDetay strong i{color:#ff7800;font-weight:bold}
+						/*	Kasaya Git	*/
+						.kasa {display:block;width:108px;position:absolute;top:14px;right:10px;height:34px;background:url(img/kasa-bg.png);text-align:center;font:bold 11px Arial;color:#fff;line-height:34px}
+						.kasa:hover {background-position:0 -35px}
+					/*	Sepet Sag	*/
+					.sSag {float:right}
+					.sSag a {color:#fff;padding:9px 25px;display:block;float:left}
+					.sSag a b {font-weight:bold}
+					.sSag a:hover b , .sSag a.aktif b {color:#ff840d}
+			#sosyal {position:absolute;top:65px;right:60px}
+			#sosyal .sab {width:145px;height:22px;display:block;background:url(img/sosyal.png)}
+			#sosyal a {margin-top:8px;display:block;float:left;margin-left:10px}
+			#sosyal i {display:none;width:51px;height:63px;background:url(img/s-ok.png);position:absolute;right:-40px;top:0}
+		
+		/*	Menü	*/
+		#menu {}
+		#menu ul li {float:left}
+		#menu ul li a {color:#748891;display:block;padding:9px}
+		#menu ul li a:hover , #menu ul li a.aktif {text-decoration:underline}
+		
+		/*	İçerik	*/
+		#icerik {margin-top:110px}
+			#icerikust {margin-bottom:10px;height:40px}
+			#icerikust ul {float:left;margin-top:10px;}
+			#icerikust ul li {float:left;padding:0 3px}
+			#icerikust ul li a {display:block;padding:0 5px;color:#38515b;font-size:15px;border-bottom:1px solid transparent}
+				#icerikust ul li a:hover , #icerik ul li a.aktif {border-bottom:1px dashed #237d88}
+			#icerikust ul li a b {font-weight:bold}
+				/*	Facebook Beğen	*/
+				#fbegen {background-color:#fff;float:left;width:141px;height:26px;display:block;padding:3px 10px;border-radius:5px;margin-right:2px;margin-top:5px}
+				/*	Arama	*/
+				#arama {float:right}
+				#arama input{width:175px;height:27px;border:none;background:url(img/ara.png);float:left;padding:5px 40px;margin:2px 0px;font-size:11px;color:#333}
+				#arama button {width:46px;height:39px;background:url(img/bul.png);border:none;cursor:pointer}
+			
+			/*	Sol	*/
+			#isol {width:221px;float:left}
+				/*	Sol Menü	*/
+				#smenu .smb{display:block;width:221px;height:48px;background:url(img/kat-bas.png);color:#fff;font-size:16px;font-weight:bold;text-align:center;line-height:40px}
+				#smenu .smliste {background:url(img/kat-orta.png) repeat-y;width:221px}
+				#smenu .smliste ul {background:url(img/kat-alt.png) no-repeat bottom;padding-bottom:20px;width:221px}
+				#smenu .smliste ul li a{display:block;padding:5px 10px;margin-left:22px;color:#252525;font-size:13px}
+				#smenu .smliste ul li a.aktif ,
+				#smenu .smliste ul li a:hover {background:url(img/menu-hover.png) no-repeat;color:#fff;font-weight:bold}
+		
+				/*	Yeni Ürünler	*/
+				#smenu .smliste .urunliste {}
+				#smenu .smliste .urunliste li {height:80px}
+				#smenu .smliste .urunliste li a {color:#f90000;font-weight:bold;margin:0;padding:0;font-size:11px;padding-top:5px;padding-bottom:2px}
+				#smenu .smliste .urunliste li a:hover {background:transparent;color:#333}
+				#smenu .smliste .urunliste li img {display:block;float:left;padding:5px;margin:0;}
+				#smenu .smliste .urunliste li p {font-size:11px;padding-right:5px}
+				#smenu .smliste .urunliste li span {font-size:15px;font-weight:bold}
+				
+				/*	Haberin Olsun	*/
+				#haberinolsun {width:221px;height:187px;background:url(img/ho.png)}
+				#haberinolsun span {color:#945810;padding:50px 20px 10px 20px;display:block}
+				#haberinolsun span b {font-weight:bold}
+				#haberinolsun form input {color:#ff4e00;width:154px;height:27px;line-height:24px;background:url(img/sprite.png);border:0;font-size:11px;padding:0 10px;display:block;margin-left:20px;margin-bottom:5px}
+				#haberinolsun form button {width:84px;height:27px;background:url(img/sprite.png) 0 -31px;border:0;margin:5px 20px}
+				#haberinolsun form button:hover {background-position:0 -60px;cursor:pointer}
+			
+			/*	Sag	*/
+			#isag {float:right;
+				width:735px;
+				height:580px;
+				background-color:#FFFF99;
+				border-radius:15px 15px 15px 15px;
+			}
+				/*	Manşet	*/
+			.isag-1{
+				width:735px;
+				height: 250px;
+			}
+			.isag-1-1 img{
+				width:300px;
+				height:200px;
+				float:left;
+				margin-left: 10px;
+				margin-top: 20px;
+				border:5px dashed white;
+			}
+			.isag-1-2{
+				width: 380px;
+				height: 210px;
+				margin-left: 10px;
+				margin-top: 15px;
+				float: left;
+
+			}
+			.isag-1-2 span{
+				float:left;
+				font-family: 微软雅黑;
+				font-size: 20px;
+				margin-top:20px;
+				padding-left:20px;
+				word-break : break-all;
+			}
+			.isag-2{
+				height: 220px;
+				width: 300px;
+				background-color:#FFFFCC;
+				position: relative;
+				left:15px;
+				border-radius:15px 15px 15px 15px;
+				text-align: center;
+				border:5px dashed white;
+				font-weight: bold;
+				color:#330000;
+			}
+			.isag-2 ul{
+				font-family: 微软雅黑;
+			}
+			.isag-2 ul li{
+				font-size: 13px;
+			}
+			.isag-3{
+				width:400px;
+				height:220px;
+				background-color: ;
+				float:right;
+				position:absolute;
+				left: 555px;
+				top:541px;
+
+
+			}
+			.isag-3 img{
+				width:110px;
+				height:200px;
+			}
+			.isag-4{
+				width:730px;
+				height: 60px;
+				background-color: #FFFFCC;
+				margin-left: 2px;
+				margin-top: 20px;
+				float: left;
+			}
+			.isag-4-1{
+                                          width:200px;
+                                          height: 50px;
+                                          background-color: orange;
+                                          color: white;
+                                          font-family: 微软雅黑;
+                                          font-size:30px;
+                                          margin-top:5px; 
+                                          margin-left: 10px;
+                                          text-align: center;
+                                          border-radius:15px 15px 15px 15px;
+			}
+			.isag-4-1 a{
+				color: white;
+			}
+			.isag-4-1 a:hover{
+				color:black;
+			}
+			.isag-4-2{
+                                          width:200px;
+                                          height: 50px;
+                                          background-color: orange;
+                                          color: white;
+                                          font-family: 微软雅黑;
+                                          font-size:30px; 
+                                          margin-top: -50px;
+                                          margin-left: 260px;
+                                          text-align: center;
+                                          border-radius:15px 15px 15px 15px;
+                                          
+			}
+			.isag-4-2 a{
+				color: white;
+			}
+			.isag-4-2 a:hover{
+				color:black;
+			}
+			.isag-4-3{
+                                          width:200px;
+                                          height: 50px;
+                                          background-color: orange;
+                                          color: white;
+                                          text-align: center;
+                                          font-family: 微软雅黑;
+                                          font-size:30px;
+                                          margin-top: -50px;
+                                          margin-left: 520px;
+                                          border-radius:15px 15px 15px 15px;
+			}
+			.isag-4-3 a{
+				color: white;
+			}
+			.isag-4-3 a:hover{
+				color:black;
+			}
+
+					
+
+
+		/*	Footer	*/
+		#footer {width:100%;height:252px;background:url(img/footer.png);clear:both}			
+			.footer {width:960px;margin:0 auto;position:relative;height:252px}
+			/*	Footer Alt Menü	*/
+			.footer #fmenu {border-bottom:1px dashed #c8c8c8;height:47px}
+			.footer #fmenu li {float:left}
+			.footer #fmenu li a {display:block;padding:15px 15px;color:#676767;font-size:13px}
+			.footer #fmenu li a:hover , .footer #fkategori li a:hover{color:#333;text-shadow:1px 0 #fff}
+			/*	Footer Alt Kategori	*/
+			.footer #fkategori {}
+			.footer #fkategori li {float:left;margin:10px 0 3px 0;}
+			.footer #fkategori li a {color:#7a7979;font-size:11px;padding:0 10px;background:url(img/cizgi.png) no-repeat right}
+				/*	footer logo	*/
+					#footerlogo {width:278px;height:69px;background:url(img/footer-logo.png);position:absolute;bottom:0;left:38%}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
