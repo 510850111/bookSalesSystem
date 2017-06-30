@@ -21,15 +21,6 @@ public class BookServiceImpl {
         }
     }
     
-    public boolean getad(Book vo) throws Exception {
-        try {
-            return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getad(vo);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            this.dbc.close();
-        }
-    }
     
     public List<Book> getAllBooks() throws Exception {
         try {
@@ -39,6 +30,43 @@ public class BookServiceImpl {
         } finally {
             this.dbc.close();
         }
+    }
+    
+    public List<Book> getBooksBySplite(int index,int num) throws Exception{
+    	try {
+            return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getBooksBySplite(index,num);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            this.dbc.close();
+        }
+    }
+    public List<Book> getCategory(String categoryName) throws Exception{
+    	try{
+    		return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getCategory(categoryName);
+    	}catch(Exception e){
+    		throw e;
+    	}finally {
+            this.dbc.close();
+        }
+    }
+    public List<Book> getAD() throws Exception{
+    	try{
+    		return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getAD();
+    	}catch(Exception e){
+    		throw e;
+    	}finally{
+    		this.dbc.close();
+    	}
+    }
+    public List<Book> getHotBook() throws Exception{
+    	try{
+    		return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getHotBook();
+    	}catch(Exception e){
+    		throw e;
+    	}finally{
+    		this.dbc.close();
+    	}
     }
     
 }
