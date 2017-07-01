@@ -27,7 +27,7 @@ public interface IBookDao extends IDAO<Integer,Book> {
      * @return
      * @throws Exception
      */
-    public List<Book> purchaseList(String aid) throws Exception;
+    public List<Book> purchaseList(String bid) throws Exception;
     
     /**
      * 获取所有图书
@@ -35,7 +35,33 @@ public interface IBookDao extends IDAO<Integer,Book> {
      * @throws Exception
      */
     public List<Book> getAllBooks() throws Exception;
-
+    
+    /**
+     * 
+     * @param index,num
+     * @return List
+     * @throws Exception
+     */
+    public List<Book> getBooksBySplite(int index,int num) throws Exception;
+    /**
+     * 
+     * @param categoryName
+     * @return List
+     * @throws Exception
+     */
+    public List<Book> getCategory(String categoryName) throws Exception;
+    /**
+     * 
+     * @return List
+     * @throws Exception
+     */
+    public List<Book> getAD() throws Exception;
+    /**
+     * 
+     * @return List返回热门书籍
+     * @throws Exception
+     */
+    public List<Book> getHotBook() throws Exception;
 
 
 }

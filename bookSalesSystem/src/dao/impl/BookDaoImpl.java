@@ -66,7 +66,7 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 	}
 
 	@Override
-	public boolean purchaseByBid(Book vo, String aid) throws Exception {
+	public boolean purchaseByBid(Book vo, String bid) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -81,10 +81,31 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 	public List<Book> getAllBooks() throws Exception {
 		List<Book> data=new ArrayList<>();
 		Book book=new Book();
-		book.setBid(0);
-		book.setBookName("ABC");
-		data.add(book);
-		// TODO Auto-generated method stub
+		//通過數據庫返回bid,bookName,price,img,author,salesNumber,score,abstract,surplus,categoryName
+		return data;
+	}
+	public List<Book> getBooksBySplite(int index,int num) throws Exception {
+		List<Book> data=new ArrayList<>();
+		Book book=new Book();
+		//通過數據庫返回bid,bookName,price,img,author,salesNumber,score,abstract,surplus,categoryName
+		return data;
+	}
+	public List<Book> getCategory(String categoryName) throws Exception{
+		List<Book> data= new ArrayList<>();
+		Book book=new Book();
+		//返回分类
+		return data;
+	}
+	public List<Book> getAD() throws Exception{
+		List<Book> data= new ArrayList<>();
+		Book book=new Book();
+		//返回请求的广告
+		return data;
+	}
+	public List<Book> getHotBook() throws Exception{
+		List<Book> data= new ArrayList<>();
+		Book book=new Book();
+		//返回请求热门书籍
 		return data;
 	}
 
