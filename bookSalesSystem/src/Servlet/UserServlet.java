@@ -1,6 +1,7 @@
 package Servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import factory.ServiceFactory;
 import vo.User;
 
 @WebServlet(name = "adminServlet", urlPatterns = "/pages/back/AdminServlet/*")
@@ -42,22 +44,39 @@ public class UserServlet extends HttpServlet {
 	}
 
 	private String changePassword(HttpServletRequest request, HttpServletResponse response) {
-		String userName = (String) request.getAttribute("phoneNumber");
-		String oldPassword = (String) request.getAttribute("oldPAssword");
-		String newPassword = (String) request.getAttribute("newPassword");
+		String userName ="";
+		String oldPassword ="";
+		String newPassword = "";
+		Boolean data =null;
+		
 		// 先验证旧密码正确性
 		// 如果旧密码正确,修改密码
 		// 修改成功
 		// 修改失败
+		try{
+			userName = (String) request.getAttribute("phoneNumber");
+			oldPassword = (String) request.getAttribute("oldPAssword");
+			newPassword = (String) request.getAttribute("newPassword");
+			data=ServiceFactory.getIUserServiceInstance().changePassword(userName, oldPassword, newPassword);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 
 		return null;
 	}
 
 	private String validMessage(HttpServletRequest request, HttpServletResponse response) {
-		String phoneNumber = (String) request.getAttribute("phoneNumber");
-		String validCode = (String) request.getAttribute("validCode");
-
+		String phoneNumber = "";
+		String validCode = "";
+		List<User> data=null;
 		// 调用第三方API,验证验证码正确性
+		try{
+			phoneNumber = (String) request.getAttribute("phoneNumber");
+			validCode = (String) request.getAttribute("validCode");
+			data=ServiceFactory.getIUserServiceInstance().validMessage(phoneNumber, validCode);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return null;
 	}
 
