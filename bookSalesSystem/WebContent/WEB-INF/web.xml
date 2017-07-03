@@ -2,6 +2,14 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee   " xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>bookSalesSystem</display-name>
   <welcome-file-list>
-    <welcome-file>/pages/index.html</welcome-file>
+    <welcome-file>/pages/index.jsp</welcome-file>
   </welcome-file-list>
+  <!--配置jstl-->
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://127.0.0.1:8080/c</taglib-uri>
+            <taglib-location>/WEB-INF/c.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+  
 </web-app>
