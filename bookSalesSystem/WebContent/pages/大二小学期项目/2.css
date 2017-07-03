@@ -121,7 +121,7 @@ table {
 				#fbegen {background-color:#fff;float:left;width:141px;height:26px;display:block;padding:3px 10px;border-radius:5px;margin-right:2px;margin-top:5px}
 				/*	Arama	*/
 				#arama {float:right}
-				#arama input{width:175px;height:27px;border:none;background:url(img/ara.png);float:left;padding:5px 40px;margin:2px 0px;font-size:11px;color:#333}
+				#arama input{width:175px;height:27px;border:none;background:url(img/ara.png);float:left;padding:5px 40px;margin:2px 0px;font-size:11px;color:#333;}
 				#arama button {width:46px;height:39px;background:url(img/bul.png);border:none;cursor:pointer}
 			
 			/*	Sol	*/
