@@ -11,9 +11,9 @@ import vo.shopCar;
 public class ShopCartServiceImpl {
 	private DatabaseConnection dbc = new DatabaseConnection();
 	
-	public List<shopCar> shopCart(int num) throws Exception{
+	public List<shopCar> shopCart(int num,String number) throws Exception{
 		try {
-            return DAOFactory.getIShopCartDAOInstance((Connection) this.dbc.getConn()).shopCart(num);
+            return DAOFactory.getIShopCartDAOInstance((Connection) this.dbc.getConn()).shopCart(num,number);
         } catch (Exception e) {
             throw e;
         } finally {

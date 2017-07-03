@@ -30,5 +30,23 @@ private DatabaseConnection dbc = new DatabaseConnection();
 			this.dbc.close();
 		}
 	}
+	public Boolean register(String userName,String phoneNumber,String password) throws Exception{
+		try{
+			return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).register(userName, phoneNumber, password);
+		}catch(Exception e){
+			throw e;
+		}finally{
+			this.dbc.close();
+		}
+	}
+	public Boolean login(String userName,String password) throws Exception{
+		try{
+			return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).login(userName, password);
+		}catch(Exception e){
+			throw e;
+		}finally{
+			this.dbc.close();
+		}
+	}
 
 }

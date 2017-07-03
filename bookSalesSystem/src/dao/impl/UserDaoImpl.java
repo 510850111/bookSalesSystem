@@ -72,6 +72,13 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 		User user=new User();
 		return data;
 	}
+	public Boolean register(String userName,String phoneNumber,String password) throws Exception{
+		return null;
+		
+	}
+	public Boolean login(String userName,String password) throws Exception{
+		return null;
+	}
 
 	
 	

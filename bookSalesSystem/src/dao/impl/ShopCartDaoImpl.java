@@ -59,7 +59,7 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 		// TODO Auto-generated method stub
 		return null;
 	} 
-	public List<shopCar> shopCart(int num){
+	public List<shopCar> shopCart(int num,String number){
 		List<shopCar> data= new ArrayList<>();
 		Book book=new Book();
 		//返回请求热门书籍

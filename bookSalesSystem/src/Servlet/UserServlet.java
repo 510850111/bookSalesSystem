@@ -83,10 +83,22 @@ public class UserServlet extends HttpServlet {
 	public String register(HttpServletRequest request, HttpServletResponse response) {
 
 		User vo = new User();
-		vo.setUserName((String) request.getAttribute("userName"));
-		vo.setPhoneNumber((String) request.getAttribute("phoneNumber"));
-		vo.setPassword((String) request.getAttribute("password"));
-
+//		vo.setUserName((String) request.getAttribute("userName"));
+//		vo.setPhoneNumber((String) request.getAttribute("phoneNumber"));
+//		vo.setPassword((String) request.getAttribute("password"));
+		String userName="";
+		String phoneNumber="";
+		String password="";
+		Boolean data=false;
+		try{
+			userName=(String) request.getAttribute("userName");
+			phoneNumber=(String) request.getAttribute("phoneNumber");
+			password=(String) request.getAttribute("password");
+			data=ServiceFactory.getIUserServiceInstance().register(userName, phoneNumber, password);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		// 把这些信息添加到数据库
 
 		return null;
@@ -96,15 +108,17 @@ public class UserServlet extends HttpServlet {
 
 		String msg = "";
 		String url = "";
-
-		String userName = (String) request.getAttribute("userName");
-		String password = (String) request.getAttribute("password");
-
+		String userName ="";
+		String password ="";
+		Boolean data=null;
+		try{
+			userName = (String) request.getAttribute("userName");
+			password = (String) request.getAttribute("password");
+			data=ServiceFactory.getIUserServiceInstance().login(userName, password);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		User vo = new User();
-
-		vo.setUserName(userName);
-		vo.setPassword(password);
-
 		if (true) {
 			vo.setIsAdmin(true);
 		}

@@ -7,6 +7,7 @@ public class shopCar {
 	private int price;
 	private int isOrder;
 	private int isPurchase;
+	private int number;
 	
 	
 	public int getSid() {
@@ -44,6 +45,12 @@ public class shopCar {
 	}
 	public void setIsPurchase(int isPurchase) {
 		this.isPurchase = isPurchase;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
 	}
 	
 
