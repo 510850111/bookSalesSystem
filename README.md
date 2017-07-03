@@ -31,6 +31,34 @@
   
     (String)  categoryName;
 
+#	shopCar:
+
+	(int)	sid;
+
+	(int)	uid;
+
+	(int)	bid;
+
+	(int)	price;
+	
+	(int)	isOrder;
+
+	(int)	isPurchase;
+
+#	User:
+
+	(int)	uid;
+	
+	(String)	userName;
+
+	(String)	phoneNumber;
+
+	(String)	password;
+
+	(String)	address;
+
+	(boolean)	isAdmin;
+
 前端接口:
 
 #    getAllBooks() 
