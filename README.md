@@ -27,7 +27,7 @@
     
     (String)  categoryName;
     
-  category:
+#  category:
   
     (String)  categoryName;
 
@@ -114,7 +114,7 @@
             (String)  abstract;
             
 #    shopCart(int num);
-    
+    	获取购物车前num条内容
         参数:num = 1;
         
         返回:
@@ -124,8 +124,21 @@
             (String)  bookName;
             
             (int)     price;
+
+#    shopCart()
+
+	获取购物车的所有内容
+
+	返回 : list
+		
+            (int)     bid;
             
-    logout();
+            (String)  bookName;
+            
+            (int)     price;
+
+            
+#    logout();
      
 #    search(String keyWord);
     
@@ -212,3 +225,16 @@
 		url
 
    
+#    getPersonInfomation()
+
+	返回:
+		int uid;
+
+		String userName;
+
+		String phoneNumber;
+
+		String address;
+
+		boolean isAdmin;
+
