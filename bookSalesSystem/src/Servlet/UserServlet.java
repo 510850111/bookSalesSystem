@@ -47,7 +47,8 @@ public class UserServlet extends HttpServlet {
 		String userName ="";
 		String oldPassword ="";
 		String newPassword = "";
-		Boolean data =null;
+		String msg="";
+		String url="";
 		
 		// 先验证旧密码正确性
 		// 如果旧密码正确,修改密码
@@ -57,10 +58,14 @@ public class UserServlet extends HttpServlet {
 			userName = (String) request.getAttribute("phoneNumber");
 			oldPassword = (String) request.getAttribute("oldPAssword");
 			newPassword = (String) request.getAttribute("newPassword");
-			data=ServiceFactory.getIUserServiceInstance().changePassword(userName, oldPassword, newPassword);
+			if(ServiceFactory.getIUserServiceInstance().changePassword(userName, oldPassword, newPassword)){
+				msg="修改成功";
+				url="成功修改密码后的密码";
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
 
 		return null;
 	}
@@ -83,10 +88,27 @@ public class UserServlet extends HttpServlet {
 	public String register(HttpServletRequest request, HttpServletResponse response) {
 
 		User vo = new User();
-		vo.setUserName((String) request.getAttribute("userName"));
-		vo.setPhoneNumber((String) request.getAttribute("phoneNumber"));
-		vo.setPassword((String) request.getAttribute("password"));
-
+		String msg="";
+		String url="";
+		String userName="";
+		String phoneNumber="";
+		String password="";
+		Boolean data=false;
+		try{
+			userName=(String) request.getAttribute("userName");
+			phoneNumber=(String) request.getAttribute("phoneNumber");
+			password=(String) request.getAttribute("password");
+			data=ServiceFactory.getIUserServiceInstance().register(userName, phoneNumber, password);
+			if(ServiceFactory.getIUserServiceInstance().register(userName, phoneNumber, password)){
+				msg="注册成功";
+				url="成功后跳转页面";
+			}else{
+				msg="注册失败";
+				url="失败后跳转的页面";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		// 把这些信息添加到数据库
 
 		return null;
@@ -96,15 +118,24 @@ public class UserServlet extends HttpServlet {
 
 		String msg = "";
 		String url = "";
-
-		String userName = (String) request.getAttribute("userName");
-		String password = (String) request.getAttribute("password");
-
-		User vo = new User();
-
-		vo.setUserName(userName);
-		vo.setPassword(password);
-
+		String userName ="";
+		String password ="";
+		User vo=new User();
+		try{
+			userName = (String) request.getAttribute("userName");
+			password = (String) request.getAttribute("password");
+			if(ServiceFactory.getIUserServiceInstance().login(userName, password)){
+				request.getSession().setAttribute("userName",userName );
+				request.getSession().setAttribute("password", password);
+				msg="登录成功！";
+				url="登录成功页面";
+			}else{
+				msg="登陆失败，错误的ID或密码";
+				url="登录页面路径";
+			}	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		if (true) {
 			vo.setIsAdmin(true);
 		}

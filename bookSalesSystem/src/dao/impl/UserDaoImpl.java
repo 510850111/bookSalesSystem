@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,13 +65,45 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 
 	@Override
 	public Boolean changePassword(String userName, String oldPassword, String newPassword) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean flag=false;
+		String sql="UPDATE User SET password=? WHERE uid=?";
+		super.pstmt=super.conn.prepareStatement(sql);
+		
+		return super.pstmt.executeUpdate()>0;
 	}
 	public List<User> validMessage(String phoneNumber,String validCode) throws Exception{
 		List<User> data= new ArrayList<>();
 		User user=new User();
 		return data;
+	}
+	public Boolean register(String userName,String phoneNumber,String password) throws Exception{
+		User vo=new User();
+		Boolean blag=false;
+		String sql="INSERT INTO Persons VALUES ('"+userName+"', '"+password+"', '"+phoneNumber+"')";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setString(1, vo.getUserName());
+		super.pstmt.setString(2, vo.getPassword());
+		super.pstmt.setString(3, vo.getPhoneNumber());
+		ResultSet rs=super.pstmt.executeQuery();
+		if(rs.next()){
+			blag=true;
+		}
+		return blag;
+		
+	}
+	public Boolean login(String userName,String password) throws Exception{
+		User vo= new User();
+		boolean flag=false;
+		String sql="SELECT * FROM User WHERE uid=? AND password=? AND flag=1";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setString(1, vo.getUserName());
+		super.pstmt.setString(2, vo.getPassword());
+		ResultSet rs=super.pstmt.executeQuery();
+		if(rs.next()){
+			flag=true;
+			
+		}
+		return flag;
 	}
 
 	

@@ -23,5 +23,22 @@ public interface IUserDao extends IDAO<Integer,User> {
 	  * @throws Exception
 	  */
 	 public List<User> validMessage(String phoneNumber,String validCode) throws Exception;
+	 /**
+	  * 
+	  * @param userName
+	  * @param phoneNumber
+	  * @param password
+	  * @return true/false
+	  * @throws Exception
+	  */
+	 public Boolean register(String userName,String phoneNumber,String password) throws Exception;
+	 /**
+	  * 
+	  * @param userName
+	  * @param password
+	  * @return true/false
+	  * @throws Exception
+	  */
+	 public Boolean login(String userName,String password) throws Exception;
 
 }

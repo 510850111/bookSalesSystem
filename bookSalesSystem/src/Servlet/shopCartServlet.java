@@ -43,12 +43,14 @@ public class shopCartServlet extends HttpServlet {
 	}
 	public String shopCart(HttpServletRequest request,HttpServletResponse response){
 		int num=Integer.parseInt((String) request.getAttribute("num"));
+		String number="";
 		String msg="";
     	String url="";
     	List<shopCar> data=null;
     	try{
     		msg="请求购物车成功";
     		url="/pages/index.html";
+    		number=(String) request.getAttribute("number");
     		data=ServiceFactory.getIShopCartServiceInstance().shopCart();
     	}catch(Exception e){
     		e.printStackTrace();
