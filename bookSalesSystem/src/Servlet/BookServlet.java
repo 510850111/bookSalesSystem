@@ -10,6 +10,7 @@ import factory.ServiceFactory;
 import vo.Book;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 @SuppressWarnings("serial")
@@ -40,7 +41,7 @@ public class BookServlet extends HttpServlet {
 			}
 
 		}
-		request.getRequestDispatcher(path).forward(request, response);
+//		request.getRequestDispatcher(path).forward(request, response);
 
 	}
 
@@ -87,20 +88,26 @@ public class BookServlet extends HttpServlet {
 
 	}
 
-	public String getCategory(HttpServletRequest request, HttpServletResponse response) {
+	public String getCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8");
+	    response.setContentType("text/html;charset=utf-8");
 		String categoryName = (String) request.getAttribute("categoryName");
 		String msg = "";
 		String url = "";
+		PrintWriter out = response.getWriter();
 		List<Book> data=null;
 		try{
 			msg="获取分类成功";
 			url = "/pages/index.html";
-			data= ServiceFactory.getIBookServiceInstance().getCategory(categoryName);
+//			data= ServiceFactory.getIBookServiceInstance().getCategory(categoryName);
+			String json = "{\"id\":1,\"name\":\"张三\",\"age\":18}";
+			out.print(json);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		request.setAttribute("url", url);
-		return "/pages/forward.jsp";
+//		return "/pages/forward.jsp";
+		return "";
 
 	}
 
