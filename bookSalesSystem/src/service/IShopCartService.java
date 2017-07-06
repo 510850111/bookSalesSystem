@@ -11,4 +11,11 @@ public interface IShopCartService {
 	 * @throws Exception
 	 */
 	public List<shopCar> shopCart(int num,String number) throws Exception;
+	
+	/**
+	 * 
+	 * @return 返回购物车所有信息
+	 * @throws Exception
+	 */
+	public List<shopCar> shopCart() throws Exception;
 }

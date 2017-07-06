@@ -6,9 +6,10 @@ import com.mysql.jdbc.Connection;
 
 import dbc.DatabaseConnection;
 import factory.DAOFactory;
+import service.ICategoryService;
 import vo.Category;
 
-public class CategoryServiceImpl {
+public class CategoryServiceImpl implements ICategoryService {
 	public class ShopCartServiceImpl {
 		private DatabaseConnection dbc = new DatabaseConnection();
 		
@@ -21,5 +22,17 @@ public class CategoryServiceImpl {
 				this.dbc.close();
 			}
 		}
+	}
+
+	@Override
+	public List<Category> search(String categoryName) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Category> getCategory(String categoryName) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

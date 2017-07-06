@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import factory.ServiceFactory;
 import vo.Book;
+import vo.Category;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,107 +42,262 @@ public class BookServlet extends HttpServlet {
 			}
 
 		}
-//		request.getRequestDispatcher(path).forward(request, response);
+		// request.getRequestDispatcher(path).forward(request, response);
 
 	}
 
-	public String getAllBooks(HttpServletRequest request, HttpServletResponse response) {
+	public String getAllBooks(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
 		String msg = "";
 		String url = "/pages/index.html";
+		
+		boolean flag = false;
 		try {
 			List<Book> data = null;
 			data = ServiceFactory.getIBookServiceInstance().getAllBooks();
-			request.setAttribute("data", data);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		request.setAttribute("url", url);
-		return "/pages/forward.jsp";
-
-	}
-
-	public String getBooksBySplite(HttpServletRequest request, HttpServletResponse response) {
-		String msg="";
-		String url="";
-		int index = Integer.parseInt((String) request.getAttribute("index"));
-		int num = Integer.parseInt((String) request.getAttribute("num"));
-		List<Book> data = null;
-
-		try {		
-			data = ServiceFactory.getIBookServiceInstance().getBooksBySplite(index, num);
-			msg = "查询成功";
-			url = "/pages/index.html";
+			
+			String json = "{";
+			for (Book book : data) {
+				if (!flag) {
+					json += "["
+									+ "\"bid\" : " + "\"" + book.getBid() 
+									+	"\"bookName\"" + "\"" + book.getBookName() 
+									+	"\"price\"" + "\"" + book.getPrice() 
+									+	"\"img\"" + "\"" + book.getImg() 
+									+	"\"author\"" + "\"" + book.getAuthor() 
+									+	"\"salesNumber\"" + "\"" + book.getSalesNumber()
+									+	"\"score\"" + "\"" + book.getScore() 
+									+	"\"abstract\"" + "\"" + book.get_abstract() 
+									+	"\"surplus\"" + "\"" + book.getSurplus() 
+									+	"\"categoryName\"" + "\"" + book.getCategoryName()+
+								"]";
+					flag = true;
+				} else if (flag) {
+					json += ",["
+							+ "\"bid\" : " + "\"" + book.getBid() 
+							+	"\"bookName\"" + "\"" + book.getBookName() 
+							+	"\"price\"" + "\"" + book.getPrice() 
+							+	"\"img\"" + "\"" + book.getImg() 
+							+	"\"author\"" + "\"" + book.getAuthor() 
+							+	"\"salesNumber\"" + "\"" + book.getSalesNumber()
+							+	"\"score\"" + "\"" + book.getScore() 
+							+	"\"abstract\"" + "\"" + book.get_abstract() 
+							+	"\"surplus\"" + "\"" + book.getSurplus() 
+							+	"\"categoryName\"" + "\"" + book.getCategoryName()+
+						"]";
+				}
+			}
+			flag = false;
+			json += "}";
+			// 输出数据
+			System.out.println("json:" + json);
+			out.print(json);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		
-
-		request.setAttribute("msg", msg);
 		request.setAttribute("url", url);
+		return "";
 
-		return "/pages/forward.jsp";
+	}
+
+	public String getBooksBySplite(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		int index = Integer.parseInt((String) request.getAttribute("index"));
+		int num = Integer.parseInt((String) request.getAttribute("num"));
+		
+		String msg = "";
+		String url = "/pages/index.html";
+		
+		boolean flag = false;
+		try {
+			List<Book> data = null;
+			data = ServiceFactory.getIBookServiceInstance().getBooksBySplite(index,num);
+			
+			String json = "{";
+			for (Book book : data) {
+				if (!flag) {
+					json += "["
+									+ "\"bid\" : " + "\"" + book.getBid() 
+									+	"\"bookName\"" + "\"" + book.getBookName() 
+									+	"\"price\"" + "\"" + book.getPrice() 
+									+	"\"img\"" + "\"" + book.getImg() 
+									+	"\"author\"" + "\"" + book.getAuthor() 
+									+	"\"salesNumber\"" + "\"" + book.getSalesNumber()
+									+	"\"score\"" + "\"" + book.getScore() 
+									+	"\"abstract\"" + "\"" + book.get_abstract() 
+									+	"\"surplus\"" + "\"" + book.getSurplus() 
+									+	"\"categoryName\"" + "\"" + book.getCategoryName()+
+								"]";
+					flag = true;
+				} else if (flag) {
+					json += ",["
+							+ "\"bid\" : " + "\"" + book.getBid() 
+							+	"\"bookName\"" + "\"" + book.getBookName() 
+							+	"\"price\"" + "\"" + book.getPrice() 
+							+	"\"img\"" + "\"" + book.getImg() 
+							+	"\"author\"" + "\"" + book.getAuthor() 
+							+	"\"salesNumber\"" + "\"" + book.getSalesNumber()
+							+	"\"score\"" + "\"" + book.getScore() 
+							+	"\"abstract\"" + "\"" + book.get_abstract() 
+							+	"\"surplus\"" + "\"" + book.getSurplus() 
+							+	"\"categoryName\"" + "\"" + book.getCategoryName()+
+						"]";
+				}
+			}
+			flag = false;
+			json += "}";
+			// 输出数据
+			System.out.println("json:" + json);
+			out.print(json);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("url", url);
+		return "";
 
 	}
 
 	public String getCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.setCharacterEncoding("utf-8");
-	    response.setContentType("text/html;charset=utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		boolean flag = false;
+
 		String categoryName = (String) request.getAttribute("categoryName");
 		String msg = "";
 		String url = "";
-		PrintWriter out = response.getWriter();
-		List<Book> data=null;
-		try{
-			msg="获取分类成功";
+
+		Category category0 = new Category();
+		category0.setCategoryName("123");
+
+		Category category1 = new Category();
+		category1.setCategoryName("456");
+
+		List<Category> data = new ArrayList<>();
+		data.add(category0);
+		data.add(category1);
+
+		String json = "{";
+
+		try {
+			msg = "获取分类成功";
 			url = "/pages/index.html";
-//			data= ServiceFactory.getIBookServiceInstance().getCategory(categoryName);
-			String json = "{\"id\":1,\"name\":\"张三\",\"age\":18}";
+
+			// ServiceFactory.getICategoryServiceInstance().getCategory(categoryName);
+			// 遍历数据
+			for (Category category : data) {
+				if (!flag) {
+					json += "\"categoryName\" : " + "\"" + category.getCategoryName() + "\"";
+					flag = true;
+				} else if (flag) {
+					json += "," + "\"categoryName\" : " + "\"" + category.getCategoryName() + "\"";
+				}
+			}
+			flag = false;
+			json += "}";
+			// 输出数据
+			System.out.println("json:" + json);
 			out.print(json);
-		}catch(Exception e){
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		request.setAttribute("url", url);
-//		return "/pages/forward.jsp";
 		return "";
 
 	}
 
-	public String getAD(HttpServletRequest request, HttpServletResponse response) {
+	public String getAD(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		boolean flag = false;
 
 		String msg = "";
 		String url = "";
-		List<Book> data =null;
-		try{
-			msg="获取广告";
+		String json = "{";
+		List<Book> data = null;
+		try {
+			msg = "获取广告";
 			url = "/pages/index.html";
-			data=ServiceFactory.getIBookServiceInstance().getAD();
+			data = ServiceFactory.getIBookServiceInstance().getAD();
 			
-		}catch(Exception e){
+			for (Book book : data) {
+				if (!flag) {
+					json += "\"categoryName\" : " + "\"" + book.getImg() + "\"";
+					flag = true;
+				} else if (flag) {
+					json += "," + "\"categoryName\" : " + "\"" +  book.getImg()+ "\"";
+				}
+			}
+			flag = false;
+			json += "}";
+			// 输出数据
+			System.out.println("json:" + json);
+			out.print(json);
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		request.setAttribute("url", url);
-		return "/pages/forward.jsp";
+		return "";
 
 	}
 
-	public String getHotBook(HttpServletRequest request, HttpServletResponse response) {
+	public String getHotBook(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
 		String msg = "";
-		String url = "";
-		List<Book> data=null;
-		try{
-			msg = "请求热门书籍成功";
-			url = "/pages/index.html";
-			data=ServiceFactory.getIBookServiceInstance().getHotBook();
-		}catch(Exception e){
+		String url = "/pages/index.html";
+		
+		boolean flag = false;
+		try {
+			List<Book> data = null;
+			data = ServiceFactory.getIBookServiceInstance().getHotBook();
+			
+			String json = "{";
+			for (Book book : data) {
+				if (!flag) {
+					json += "["
+									+ "\"bid\" : " + "\"" + book.getBid() 
+									+	"\"bookName\"" + "\"" + book.getBookName() 
+									+	"\"price\"" + "\"" + book.getPrice() 
+									+	"\"img\"" + "\"" + book.getImg() 
+									+	"\"abstract\"" + "\"" + book.get_abstract() +
+								"]";
+					flag = true;
+				} else if (flag) {
+					json += ",["
+							+ "\"bid\" : " + "\"" + book.getBid() 
+							+	"\"bookName\"" + "\"" + book.getBookName() 
+							+	"\"price\"" + "\"" + book.getPrice() 
+							+	"\"img\"" + "\"" + book.getImg() 
+							+	"\"abstract\"" + "\"" + book.get_abstract() +
+						"]";
+				}
+			}
+			flag = false;
+			json += "}";
+			// 输出数据
+			System.out.println("json:" + json);
+			out.print(json);
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		request.setAttribute("url", url);
-		return "/pages/forward.jsp";
+		return "";
 
 	}
 

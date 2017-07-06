@@ -13,5 +13,5 @@ public class ServiceFactory {
 	public static IBookService getIBookServiceInstance(){return (IBookService) new BookServiceImpl();}
 	public static IShopCartService getIShopCartServiceInstance(){return (IShopCartService) new ShopCartServiceImpl();}
 	public static IUserService getIUserServiceInstance(){return (IUserService) new UserServiceImpl();}
-	public static ICategoryService getICategoryServiceInstance(){return (ICategoryService) new CategoryServiceImpl();}
+	public static ICategoryService getICategoryServiceInstance(){return new CategoryServiceImpl();}
 }

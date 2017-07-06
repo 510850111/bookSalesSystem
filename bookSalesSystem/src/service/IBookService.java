@@ -22,13 +22,6 @@ public interface IBookService {
 	 public List<Book> getBooksBySplite(int index,int num) throws Exception;
 	 /**
 	  * 
-	  * @param categoryName	分类名
-	  * @return 所要求的分类
-	  * @throws Exception
-	  */
-	 public List<Book> getCategory(String categoryName) throws Exception;
-	 /**
-	  * 
 	  * @return 所请求的广告
 	  * @throws Exception
 	  */
