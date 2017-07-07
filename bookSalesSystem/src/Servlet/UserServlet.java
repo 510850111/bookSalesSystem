@@ -1,6 +1,7 @@
 package Servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import factory.ServiceFactory;
+import vo.Book;
 import vo.User;
 
 @WebServlet(name = "adminServlet", urlPatterns = "/pages/back/AdminServlet/*")
@@ -67,10 +69,14 @@ public class UserServlet extends HttpServlet {
 		}
 		
 
-		return null;
+		return "";
 	}
 
-	private String validMessage(HttpServletRequest request, HttpServletResponse response) {
+	private String validMessage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		Boolean flag=false;
 		String phoneNumber = "";
 		String validCode = "";
 		List<User> data=null;
@@ -79,6 +85,34 @@ public class UserServlet extends HttpServlet {
 			phoneNumber = (String) request.getAttribute("phoneNumber");
 			validCode = (String) request.getAttribute("validCode");
 			data=ServiceFactory.getIUserServiceInstance().validMessage(phoneNumber, validCode);
+			String json = "{";
+			for (User user : data) {
+				if (!flag) {
+					json += "["
+									+ "\"uid\" : " + "\"" + user.getUid() 
+									+	"\"userName\"" + "\"" + user.getUserName() 
+									+	"\"phoneNumber\"" + "\"" + user.getPhoneNumber() 
+									+	"\"password\"" + "\"" + user.getPassword() 
+									+	"\"address\"" + "\"" + user.getAddress() 
+									+	"\"isAdmin\"" + "\"" + user.getIsAdmin()+
+								"]";
+					flag = true;
+				} else if (flag) {
+					json += ",["
+							+ "\"uid\" : " + "\"" + user.getUid() 
+							+	"\"userName\"" + "\"" + user.getUserName() 
+							+	"\"phoneNumber\"" + "\"" + user.getPhoneNumber() 
+							+	"\"password\"" + "\"" + user.getPassword() 
+							+	"\"address\"" + "\"" + user.getAddress() 
+							+	"\"isAdmin\"" + "\"" + user.getIsAdmin()+
+						"]";
+				}
+			}
+			flag = false;
+			json += "}";
+			// 输出数据
+			System.out.println("json:" + json);
+			out.print(json);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

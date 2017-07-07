@@ -176,23 +176,13 @@ public class BookServlet extends HttpServlet {
 		String msg = "";
 		String url = "";
 
-		Category category0 = new Category();
-		category0.setCategoryName("123");
-
-		Category category1 = new Category();
-		category1.setCategoryName("456");
-
-		List<Category> data = new ArrayList<>();
-		data.add(category0);
-		data.add(category1);
-
 		String json = "{";
 
 		try {
 			msg = "获取分类成功";
 			url = "/pages/index.html";
-
-			// ServiceFactory.getICategoryServiceInstance().getCategory(categoryName);
+			List<Category> data =null;
+			data= ServiceFactory.getICategoryServiceInstance().getCategory(categoryName);
 			// 遍历数据
 			for (Category category : data) {
 				if (!flag) {
