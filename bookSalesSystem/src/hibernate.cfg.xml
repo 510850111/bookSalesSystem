@@ -7,14 +7,15 @@
      <property name="connection.username">root</property>
      <property name="connection.password"></property>
      <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-     <property name="connection.url">jdbc:mysql:///booksalessystem?useUnicode=true&amp;characterEncoding=UTF-8</property>
+     <property name="connection.url">jdbc:mysql:///hibernate?useUnicode=true&amp;characterEncoding=UTF-8</property>
      <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
       
      <property name="show_sql">true</property>
      <property name="format_sql">true</property>
-     <property name="hibernate.hbm2ddl.auto">update-create</property>
+     <property name="hibernate.hbm2ddl.auto">update</property>
      <property name="hibernate.current_session_context_class">thread</property>
      
-     <mapping resource="student.hbm.xml"/>
+     <mapping resource="vo/User.hbm.xml"/>
+     
     </session-factory>
 </hibernate-configuration>
