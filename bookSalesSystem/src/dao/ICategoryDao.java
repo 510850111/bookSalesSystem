@@ -13,4 +13,5 @@ public interface ICategoryDao extends IDAO<Integer,Category> {
 	 * @throws Exception
 	 */
 	public List<Category> search(String categoryName) throws Exception;
+	public List<Category> getCategory() throws Exception;
 }

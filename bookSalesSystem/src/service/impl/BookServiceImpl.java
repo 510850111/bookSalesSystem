@@ -41,15 +41,6 @@ public class BookServiceImpl {
             this.dbc.close();
         }
     }
-    public List<Book> getCategory(String categoryName) throws Exception{
-    	try{
-    		return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getCategory(categoryName);
-    	}catch(Exception e){
-    		throw e;
-    	}finally {
-            this.dbc.close();
-        }
-    }
     public List<Book> getAD() throws Exception{
     	try{
     		return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getAD();

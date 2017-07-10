@@ -68,5 +68,19 @@ public class CategoryDaoImpl extends AbstractDaoImpl implements ICategoryDao{
 		//返回请求热门书籍
 		return data;
 	}
+	public List<Category> getCategory() throws Exception{
+		List<Category> data= new ArrayList<>();
+		Category categoryTest0 = new Category();
+		categoryTest0.setCategoryName("123");
+		
+		Category categoryTest1 = new Category();
+		categoryTest1.setCategoryName("456");
+		
+		data.add(categoryTest0);
+		data.add(categoryTest1);
+		
+		//返回分类
+		return data;
+	}
 
 }

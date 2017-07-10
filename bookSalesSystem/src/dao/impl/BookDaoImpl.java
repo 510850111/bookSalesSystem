@@ -90,12 +90,6 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 		//通過數據庫返回bid,bookName,price,img,author,salesNumber,score,abstract,surplus,categoryName
 		return data;
 	}
-	public List<Book> getCategory(String categoryName) throws Exception{
-		List<Book> data= new ArrayList<>();
-		Book book=new Book();
-		//返回分类
-		return data;
-	}
 	public List<Book> getAD() throws Exception{
 		List<Book> data= new ArrayList<>();
 		Book book=new Book();

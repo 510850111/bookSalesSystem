@@ -15,9 +15,8 @@ public interface ICategoryService {
 	public List<Category> search(String categoryName) throws Exception;
 	 /**
 	  * 
-	  * @param categoryName	分类名
 	  * @return 所要求的分类
 	  * @throws Exception
 	  */
-	 public List<Category> getCategory(String categoryName) throws Exception;
+	 public List<Category> getCategory() throws Exception;
 }

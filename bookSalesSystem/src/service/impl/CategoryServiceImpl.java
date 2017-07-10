@@ -10,7 +10,6 @@ import service.ICategoryService;
 import vo.Category;
 
 public class CategoryServiceImpl implements ICategoryService {
-	public class ShopCartServiceImpl {
 		private DatabaseConnection dbc = new DatabaseConnection();
 		
 		public List<Category> search(String categoryName) throws Exception{
@@ -21,18 +20,18 @@ public class CategoryServiceImpl implements ICategoryService {
 			}finally{
 				this.dbc.close();
 			}
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Category> getCategory() throws Exception {
+		try{
+			return (List<Category>) DAOFactory.getICategoryDaoInstance(this.dbc.getConn()).getCategory();
+		}catch(Exception e){
+			throw e;
+		}finally{
+			this.dbc.close();
 		}
-	}
-
-	@Override
-	public List<Category> search(String categoryName) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Category> getCategory(String categoryName) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

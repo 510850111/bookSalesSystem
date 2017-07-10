@@ -45,13 +45,6 @@ public interface IBookDao extends IDAO<Integer,Book> {
     public List<Book> getBooksBySplite(int index,int num) throws Exception;
     /**
      * 
-     * @param categoryName
-     * @return List
-     * @throws Exception
-     */
-    public List<Book> getCategory(String categoryName) throws Exception;
-    /**
-     * 
      * @return List
      * @throws Exception
      */

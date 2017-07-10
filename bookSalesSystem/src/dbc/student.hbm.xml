@@ -26,7 +26,7 @@
          <property name="score" type="java.lang.String">
             <column name="SALESNUMBER" />
         </property>
-         <property name="_abstract type="java.lang.String">
+         <property name="_abstract" type="java.lang.String">
             <column name="ABSTRACT" />
         </property>
          <property name="detail" type="java.lang.String">
@@ -84,7 +84,7 @@
     	</property>
     </class>
     <class name="Category" table="COTRGORY">
-    	<property name-="categoryName" type="java.lang.String">
+    	<property name="categoryName" type="java.lang.String">
     		<column name="CATEGORYNAME"></column>
     	</property>
     </class>

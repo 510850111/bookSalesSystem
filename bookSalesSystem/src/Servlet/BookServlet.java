@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import factory.ServiceFactory;
+import util.test.TestMD5Code;
 import vo.Book;
 import vo.Category;
 
@@ -182,7 +183,7 @@ public class BookServlet extends HttpServlet {
 			msg = "获取分类成功";
 			url = "/pages/index.html";
 			List<Category> data =null;
-			data= ServiceFactory.getICategoryServiceInstance().getCategory(categoryName);
+			data= ServiceFactory.getICategoryServiceInstance().getCategory();
 			// 遍历数据
 			for (Category category : data) {
 				if (!flag) {
@@ -196,7 +197,7 @@ public class BookServlet extends HttpServlet {
 			json += "}";
 			// 输出数据
 			System.out.println("json:" + json);
-			out.print(json);
+			out.print(json + new TestMD5Code().getMD5Code());
 
 		} catch (Exception e) {
 			e.printStackTrace();
