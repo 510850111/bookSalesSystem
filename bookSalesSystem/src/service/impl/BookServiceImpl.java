@@ -1,8 +1,7 @@
 package service.impl;
 
 import java.util.List;
-
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 
 import dbc.DatabaseConnection;
 import factory.DAOFactory;
@@ -13,7 +12,7 @@ public class BookServiceImpl {
 
     public boolean insert(Book vo) throws Exception {
         try {
-            return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).doCreate(vo);
+            return DAOFactory.getIBookDAOInstance(this.dbc.getConn()).doCreate(vo);
         } catch (Exception e) {
             throw e;
         } finally {

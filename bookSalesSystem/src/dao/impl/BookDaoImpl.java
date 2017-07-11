@@ -1,12 +1,13 @@
 package dao.impl;
 
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.mysql.jdbc.Connection;
 import java.sql.ResultSet;
 
 import dao.IBookDao;
@@ -87,8 +88,7 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 
 	@Override
 	public Integer getAllCount(String column, String keyWord) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return -1;
 	}
 
 	@Override
@@ -115,10 +115,9 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 
 	@Override
 	public List<Book> getAllBooks() throws Exception {
-		List<Book> data=new ArrayList<>();
-		Book book=new Book();
+		
 		//通過數據庫返回bid,bookName,price,img,author,salesNumber,score,abstract,surplus,categoryName
-		return data;
+		return this.findAll();
 	}
 	public List<Book> getBooksBySplite(int index,int num) throws Exception {
 		List<Book> data=new ArrayList<>();
