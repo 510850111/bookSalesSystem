@@ -195,6 +195,10 @@ public class BookServlet extends HttpServlet {
 			}
 			flag = false;
 			json += "}";
+			
+//			new test(null);
+			
+			
 			// 输出数据
 			System.out.println("json:" + json);
 			out.print(json + new TestMD5Code().getMD5Code());

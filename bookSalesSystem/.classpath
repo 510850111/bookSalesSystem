@@ -11,20 +11,15 @@
 	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/javax.servlet.jsp.jstl.jar"/>
 	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/jstl-impl-1.2.2.jar"/>
 	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/mysql-connector-java-5.0.4-bin.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/SmartUpload.jar"/>
 	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="lib/javax.servlet.jsp.jstl.jar"/>
-	<classpathentry kind="lib" path="lib/jstl-impl-1.2.2.jar"/>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-5.0.4-bin.jar"/>
-	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="lib/SmartUpload.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core/antlr-2.7.7.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core/hibernate-commons-annotations-4.0.2.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core/hibernate-core-4.2.4.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core/javassist-3.15.0-GA.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core/jboss-logging-3.1.0.GA.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-core/jboss-transaction-api_1.1_spec-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/SmartUpload.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/hibernate-core/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/hibernate-core/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/hibernate-core/hibernate-commons-annotations-4.0.2.Final.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/hibernate-core/hibernate-core-4.2.4.Final.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/hibernate-core/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/hibernate-core/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/hibernate-core/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/hibernate-core/jboss-transaction-api_1.1_spec-1.0.1.Final.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

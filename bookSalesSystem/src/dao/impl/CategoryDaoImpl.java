@@ -9,7 +9,7 @@ import java.util.Set;
 import dao.ICategoryDao;
 import vo.Book;
 import vo.Category;
-import vo.shopCart;;
+import vo.shopCart;
 
 public class CategoryDaoImpl extends AbstractDaoImpl implements ICategoryDao{
 

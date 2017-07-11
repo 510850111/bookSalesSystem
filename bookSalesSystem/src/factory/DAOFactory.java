@@ -15,7 +15,7 @@ public class DAOFactory {
 	public static IBookDao getIBookDAOInstance(Connection conn){return  new BookDaoImpl(conn);} 
 	public static IShopCartDao getIShopCartDAOInstance(Connection conn){return new ShopCartDaoImpl(conn);} 
 	public static IUserDao getIUserDAOInstance(Connection conn){return new UserDaoImpl(conn);}
-	public static ICategoryDao getICategoryDaoInstance(java.sql.Connection connection){return new CategoryDaoImpl(connection);}
+	public static ICategoryDao getICategoryDaoInstance(Connection conn){return new CategoryDaoImpl(conn);}
 		
 
 }

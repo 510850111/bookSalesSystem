@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Set;
 
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.ResultSet;
 
 import dao.IBookDao;
 import vo.Book;
+
 
 public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
     public BookDaoImpl(Connection conn) {
@@ -18,8 +20,21 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 
 	@Override
 	public boolean doCreate(Book vo) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "INSERT INTO book(bid,bookName,price,img,author,salesNumber,score,abstract,detail,surplus) VALUES(?,?,?,?,?,?,?,?,?,?)";
+		
+        super.pstmt = super.conn.prepareStatement(sql);
+        super.pstmt.setInt(1,vo.getBid());
+        super.pstmt.setString(2, vo.getBookName());
+        super.pstmt.setInt(3,vo.getPrice());
+        super.pstmt.setString(4, vo.getImg());
+        super.pstmt.setString(5,vo.getAuthor());
+        super.pstmt.setInt(6,vo.getSalesNumber());
+        super.pstmt.setString(7,vo.getScore());
+        super.pstmt.setString(8, vo.get_abstract());
+        super.pstmt.setString(9, vo.getDetail());
+        super.pstat.setInt(10, vo.getSurplus());
+
+        return super.pstmt.executeUpdate() > 0;
 	}
 
 	@Override
@@ -42,7 +57,24 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 
 	@Override
 	public List<Book> findAll() throws SQLException {
-		// TODO Auto-generated method stub
+		List<Book> all = new ArrayList<Book>();
+		String sql = "SELECT bid,bookName,price,img,author,salesNumber,score,abstract,detail,surplus FROM book";
+		super.pstmt = super.conn.prepareStatement(sql);
+		ResultSet rs = (ResultSet) super.pstmt.executeQuery();
+		while(rs.next()){
+			Book vo = new Book();
+			vo.setBid(rs.getInt(1));
+			vo.setBookName(rs.getString(2));
+			vo.setPrice(rs.getInt(3));
+			vo.setImg(rs.getString(4));
+			vo.setAuthor(rs.getString(5));
+			vo.setSalesNumber(rs.getInt(6));
+			vo.setScore(rs.getString(7));
+			vo.set_abstract(rs.getString(8));
+			vo.setDetail(rs.getString(9));
+			vo.setSurplus(rs.getInt(10));
+			
+		}
 		return null;
 	}
 
@@ -61,8 +93,12 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 
 	@Override
 	public boolean deleteByBid(Integer bid) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		
+		String sql = "DELETE FROM book WHERE bid = ?";
+        super.pstat = super.conn.prepareStatement(sql);
+        super.pstat.setInt(1,bid);
+        return super.pstat.executeUpdate() > 0;
+        
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public List<Category> getCategory() throws Exception {
 		try{
-			return (List<Category>) DAOFactory.getICategoryDaoInstance(this.dbc.getConn()).getCategory();
+			return (List<Category>) DAOFactory.getICategoryDaoInstance((Connection) this.dbc.getConn()).getCategory();
 		}catch(Exception e){
 			throw e;
 		}finally{

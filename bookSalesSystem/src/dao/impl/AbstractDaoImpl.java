@@ -16,13 +16,14 @@ public abstract class AbstractDaoImpl {
 	protected PreparedStatement pstat;
 	public PreparedStatement pstmt;
 
-	public static Configuration config = new Configuration().configure("hibernate.cfg.xml");
-
-	public static SessionFactory factory = config.buildSessionFactory();
-
-	public static Session session = factory.openSession();
-
-	public static Transaction transaction = session.beginTransaction();
+//	public static Configuration config = new Configuration().configure("hibernate.cfg.xml");
+//
+//	@SuppressWarnings("deprecation")
+//	public static SessionFactory factory = config.buildSessionFactory();
+//
+//	public static Session session = factory.openSession();
+//
+//	public static Transaction transaction = session.beginTransaction();
 
 	public AbstractDaoImpl(Connection conn) {
 		this.conn = conn;
