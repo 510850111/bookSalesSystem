@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-10 10:13:18 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="vo.User" table="USER">
+        <id name="uid" type="int">
+            <column name="UID" />
+            <generator class="assigned" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="phoneNumber" type="java.lang.String">
+            <column name="PHONENUMBER" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="isAdmin" type="boolean">
+            <column name="ISADMIN" />
+        </property>
+    </class>
+    
+    <class name="vo.Book" table="BOOK">
+        <id name="bid" type="int">
+            <column name="BID" />
+            <generator class="assigned" />
+        </id>
+        <property name="price" type="int">
+            <column name="PRICE" />
+        </property>
+        <property name="img" type="java.lang.String">
+            <column name="IMG" />
+        </property>
+        <property name="author" type="java.lang.String">
+            <column name="AUTHOR" />
+        </property>
+        <property name="salesNumber" type="int">
+            <column name="SALESNUMBER" />
+        </property>
+        <property name="score" type="java.lang.String">
+            <column name="SCORE" />
+        </property>
+        <property name="_abstract" type="java.lang.String">
+            <column name="_ABSTRACT" />
+        </property>
+        <property name="detail" type="java.lang.String">
+            <column name="DETAIL" />
+        </property>
+        <property name="surplus" type="int">
+            <column name="SURPLUS" />
+        </property>
+        <property name="categoryName" type="java.lang.String">
+            <column name="CATEGORYNAME" />
+        </property>
+        <property name="bookName" type="java.lang.String">
+            <column name="BOOKNAME" />
+        </property>
+    </class>
+    
+    <class name="vo.shopCart" table="SHOPCART">
+        <id name="bid" type="int">
+            <column name="BID" />
+            <generator class="assigned" />
+        </id>
+        <property name="sid" type="int">
+            <column name="SID" />
+        </property>
+        <property name="uid" type="int">
+            <column name="UID" />
+        </property>
+        <property name="price" type="int">
+            <column name="PRICE" />
+        </property>
+        <property name="isOrder" type="int">
+            <column name="ISORDER" />
+        </property>
+        <property name="isPurchase" type="int">
+            <column name="ISPURCHASE" />
+        </property>
+        <property name="number" type="int">
+            <column name="NUMBER" />
+        </property>
+    </class>
+</hibernate-mapping>

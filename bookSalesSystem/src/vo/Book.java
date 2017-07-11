@@ -146,5 +146,15 @@ public class Book implements Serializable{
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
 	}
+	@Override
+	public String toString() {
+		return "Book [bid=" + bid + ", price=" + price + ", img=" + img
+				+ ", author=" + author + ", salesNumber=" + salesNumber
+				+ ", score=" + score + ", _abstract=" + _abstract + ", detail="
+				+ detail + ", surplus=" + surplus + ", categoryName="
+				+ categoryName + ", bookName=" + bookName + "]";
+	}
+	
+	
 	
 }

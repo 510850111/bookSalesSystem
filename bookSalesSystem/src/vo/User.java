@@ -9,6 +9,10 @@ public class User {
 	private String address;
 	private boolean isAdmin;
 
+	public User() {
+
+	}
+
 	public int getUid() {
 		return uid;
 	}
@@ -21,7 +25,7 @@ public class User {
 		return userName;
 	}
 
-	public void setUserName(	String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
@@ -55,6 +59,13 @@ public class User {
 
 	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
+	}
+
+	@Override
+	public String toString() {
+		return "User [uid=" + uid + ", userName=" + userName + ", phoneNumber="
+				+ phoneNumber + ", password=" + password + ", address="
+				+ address + ", isAdmin=" + isAdmin + "]";
 	}
 
 }
