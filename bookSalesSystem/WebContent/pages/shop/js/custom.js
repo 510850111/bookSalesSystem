@@ -11,3 +11,14 @@ function getCatelogry() {
 				}
 			});
 }
+
+function aaa(){
+	$.ajax({
+		
+		type:"POST",
+		url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/aaa",
+		success:function(data){
+			
+		}
+	});
+}
