@@ -79,11 +79,11 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 		// TODO Auto-generated method stub
 		return -1;
 	} 
-	public List<shopCar> shopCart(int num,String number){
+	public List<shopCar> shopCart(int num,String number)throws Exception{
 		List<shopCar> data= new ArrayList<>();
 		Book book=new Book();
-		//返回请求热门书籍
-		return data;
+		
+		return this.findAll();
 	}
 
 	@Override

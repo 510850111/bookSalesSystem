@@ -109,7 +109,7 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 
 	@Override
 	public List<Book> purchaseList(String aid) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -123,7 +123,7 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 		List<Book> data=new ArrayList<>();
 		Book book=new Book();
 		//通過數據庫返回bid,bookName,price,img,author,salesNumber,score,abstract,surplus,categoryName
-		return data;
+		return this.findAll();
 	}
 	public List<Book> getAD() throws Exception{
 		List<Book> data= new ArrayList<>();
