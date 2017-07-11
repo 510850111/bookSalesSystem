@@ -4,11 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
 public class DatabaseConnection {
     private static final String DBDRIVER = "com.mysql.jdbc.Driver";
     private static final String DBURL = "jdbc:mysql://localhost:3306/booksystem";

@@ -13,4 +13,11 @@ public interface IShopCartDao extends IDAO<Integer,shopCar> {
 	 * @throws Exception
 	 */
 	 public List<shopCar> shopCart(int num,String number) throws Exception;
+	 /**
+	  * 
+	  * @param sid
+	  * @return true/false
+	  * @throws Exception
+	  */
+	 public Boolean DeleteArticle(Integer sid) throws Exception;
 }
