@@ -77,7 +77,7 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 
 	@Override
 	public Integer getAllCount(String column, String keyWord) throws SQLException {
-		return null;
+		return -1;
 	}
 
 	@Override
