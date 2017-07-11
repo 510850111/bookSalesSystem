@@ -12,13 +12,17 @@ function getCatelogry() {
 			});
 }
 
-function aaa(){
+function getAllBooks() {
 	$.ajax({
-		
-		type:"POST",
-		url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/aaa",
-		success:function(data){
-			
-		}
-	});
+
+				type : "GET",
+				url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/getAllBooks",
+				success : function(data) {
+					console.log("[getAllBooks]data=" + JSON.stringify(data));
+					alert("[getAllBooks]data=" + JSON.stringify(data));
+				},
+				error : function(e) {
+					console.log("[getAllBooks]failed" + JSON.stringify(e));
+				}
+			});
 }

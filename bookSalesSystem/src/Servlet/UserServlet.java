@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import factory.ServiceFactory;
+import net.sf.json.JSONArray;
 import vo.Book;
 import vo.User;
 
@@ -85,34 +86,9 @@ public class UserServlet extends HttpServlet {
 			phoneNumber = (String) request.getAttribute("phoneNumber");
 			validCode = (String) request.getAttribute("validCode");
 			data=ServiceFactory.getIUserServiceInstance().validMessage(phoneNumber, validCode);
-			String json = "{";
-			for (User user : data) {
-				if (!flag) {
-					json += "["
-									+ "\"uid\" : " + "\"" + user.getUid() 
-									+	"\"userName\"" + "\"" + user.getUserName() 
-									+	"\"phoneNumber\"" + "\"" + user.getPhoneNumber() 
-									+	"\"password\"" + "\"" + user.getPassword() 
-									+	"\"address\"" + "\"" + user.getAddress() 
-									+	"\"isAdmin\"" + "\"" + user.getIsAdmin()+
-								"]";
-					flag = true;
-				} else if (flag) {
-					json += ",["
-							+ "\"uid\" : " + "\"" + user.getUid() 
-							+	"\"userName\"" + "\"" + user.getUserName() 
-							+	"\"phoneNumber\"" + "\"" + user.getPhoneNumber() 
-							+	"\"password\"" + "\"" + user.getPassword() 
-							+	"\"address\"" + "\"" + user.getAddress() 
-							+	"\"isAdmin\"" + "\"" + user.getIsAdmin()+
-						"]";
-				}
-			}
-			flag = false;
-			json += "}";
+			JSONArray jsonArray = JSONArray.fromObject(data);
 			// 输出数据
-			System.out.println("json:" + json);
-			out.print(json);
+			out.print(jsonArray);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

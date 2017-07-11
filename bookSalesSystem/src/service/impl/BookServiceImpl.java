@@ -5,9 +5,10 @@ import java.sql.Connection;
 
 import dbc.DatabaseConnection;
 import factory.DAOFactory;
+import service.IBookService;
 import vo.Book;
 
-public class BookServiceImpl {
+public class BookServiceImpl implements IBookService {
 	private DatabaseConnection dbc = new DatabaseConnection();
 
     public boolean insert(Book vo) throws Exception {

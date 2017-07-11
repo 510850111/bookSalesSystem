@@ -6,9 +6,10 @@ import com.mysql.jdbc.Connection;
 
 import dbc.DatabaseConnection;
 import factory.DAOFactory;
+import service.IUserService;
 import vo.User;
 
-public class UserServiceImpl {
+public class UserServiceImpl implements IUserService {
 private DatabaseConnection dbc = new DatabaseConnection();
 	
 	public Boolean changePassword(String userName,String oldPassword,String newPassword) throws Exception{

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import factory.ServiceFactory;
+import net.sf.json.JSONArray;
 import vo.Book;
 import vo.shopCar;
 
@@ -59,36 +60,9 @@ public class shopCartServlet extends HttpServlet {
     		url="/pages/index.html";
     		number=(String) request.getAttribute("number");
     		data=ServiceFactory.getIShopCartServiceInstance().shopCart();
-    		String json = "{";
-			for (shopCar shopCar : data) {
-				if (!flag) {
-					json += "["
-									+ "\"sid\" : " + "\"" + shopCar.getSid()
-									+	"\"uid\"" + "\"" + shopCar.getUid() 
-									+	"\"bid\"" + "\"" + shopCar.getBid() 
-									+	"\"price\"" + "\"" + shopCar.getPrice() 
-									+	"\"isOrder\"" + "\"" + shopCar.getIsOrder() 
-									+	"\"isPurchase\"" + "\"" + shopCar.getIsPurchase()
-									+	"\"number\"" + "\"" + shopCar.getNumber()+
-								"]";
-					flag = true;
-				} else if (flag) {
-					json += ",["
-							+ "\"sid\" : " + "\"" + shopCar.getSid()
-							+	"\"uid\"" + "\"" + shopCar.getUid() 
-							+	"\"bid\"" + "\"" + shopCar.getBid() 
-							+	"\"price\"" + "\"" + shopCar.getPrice() 
-							+	"\"isOrder\"" + "\"" + shopCar.getIsOrder() 
-							+	"\"isPurchase\"" + "\"" + shopCar.getIsPurchase()
-							+	"\"number\"" + "\"" + shopCar.getNumber()+
-						"]";
-				}
-			}
-			flag = false;
-			json += "}";
+    		JSONArray jsonArray = JSONArray.fromObject(data);
 			// 输出数据
-			System.out.println("json:" + json);
-			out.print(json);
+			out.print(jsonArray);
     	}catch(Exception e){
     		e.printStackTrace();
     	}
