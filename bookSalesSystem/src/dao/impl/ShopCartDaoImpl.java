@@ -77,7 +77,7 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 	@Override
 	public Integer getAllCount(String column, String keyWord) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		return -1;
 	} 
 	public List<shopCar> shopCart(int num,String number){
 		List<shopCar> data= new ArrayList<>();
