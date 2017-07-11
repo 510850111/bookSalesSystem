@@ -22,8 +22,16 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 
 	@Override
 	public boolean doCreate(User vo) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "INSERT INTO user(uid,username,phoneNumber,password,isAdmin,address) VALUES(?,?,?,?,?,?)";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setInt(0,vo.getUid());
+		super.pstmt.setString(1, vo.getUserName());
+		super.pstmt.setString(2, vo.getPhoneNumber());
+		super.pstmt.setString(3, vo.getPassword());
+		super.pstmt.setBoolean(4, vo.getIsAdmin());
+		super.pstmt.setString(5, vo.getAddress());
+		
+		return super.pstmt.executeUpdate() > 0;
 	}
 
 	@Override
@@ -46,27 +54,36 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 
 	@Override
 	public List<User> findAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> all= new ArrayList<User>();
+		String sql="SELECT uid,username,phoneNumber,address FROM user";
+		super.pstmt=super.conn.prepareStatement(sql);
+		ResultSet rs=super.pstmt.executeQuery();
+		while(rs.next()){
+			User vo=new User();
+			vo.setUid(rs.getInt(1));
+			vo.setUserName(rs.getString(2));
+			vo.setPhoneNumber(rs.getString(3));
+			vo.setAddress(rs.getString(4));
+			all.add(vo);
+		}
+		return all;
 	}
 
 	@Override
 	public List<User> findAllBySplit(String column, String keyWord, Integer currentPage, Integer lineSize)
 			throws SQLException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Integer getAllCount(String column, String keyWord) throws SQLException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Boolean changePassword(String userName, String oldPassword, String newPassword) throws Exception {
 		Boolean flag=false;
-		String sql="UPDATE User SET password=? WHERE uid=?";
+		String sql="UPDATE user SET password=? WHERE uid=?";
 		super.pstmt=super.conn.prepareStatement(sql);
 		
 		return super.pstmt.executeUpdate()>0;
@@ -79,11 +96,8 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 	public Boolean register(String userName,String phoneNumber,String password) throws Exception{
 		User vo=new User();
 		Boolean blag=false;
-		String sql="INSERT INTO Persons VALUES ('"+userName+"', '"+password+"', '"+phoneNumber+"')";
+		String sql="INSERT INTO user VALUES ('"+userName+"', '"+password+"', '"+phoneNumber+"')";
 		super.pstmt=super.conn.prepareStatement(sql);
-		super.pstmt.setString(1, vo.getUserName());
-		super.pstmt.setString(2, vo.getPassword());
-		super.pstmt.setString(3, vo.getPhoneNumber());
 		ResultSet rs=super.pstmt.executeQuery();
 		if(rs.next()){
 			blag=true;
@@ -94,7 +108,7 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 	public Boolean login(String userName,String password) throws Exception{
 		User vo= new User();
 		boolean flag=false;
-		String sql="SELECT * FROM User WHERE uid=? AND password=? AND flag=1";
+		String sql="SELECT * FROM user WHERE uid=? AND password=? AND flag=1";
 		super.pstmt=super.conn.prepareStatement(sql);
 		super.pstmt.setString(1, vo.getUserName());
 		super.pstmt.setString(2, vo.getPassword());
@@ -102,6 +116,20 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 		if(rs.next()){
 			flag=true;
 			
+		}
+		return flag;
+	}
+
+	@Override
+	public Boolean DeleteUser(String userName) throws Exception {
+		User vo=new User();
+		Boolean flag=false;
+		String sql="DELETE FROM user WHERE username=?";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setString(2, vo.getUserName());
+		ResultSet rs=super.pstmt.executeQuery();
+		if(rs.next()){
+			flag=true;
 		}
 		return flag;
 	}

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.ResultSet;
+import java.sql.ResultSet;
 
 import dao.IBookDao;
 import vo.Book;
@@ -73,9 +73,9 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 			vo.set_abstract(rs.getString(8));
 			vo.setDetail(rs.getString(9));
 			vo.setSurplus(rs.getInt(10));
-			
+			all.add(vo);
 		}
-		return null;
+		return all;
 	}
 
 	@Override

@@ -40,5 +40,12 @@ public interface IUserDao extends IDAO<Integer,User> {
 	  * @throws Exception
 	  */
 	 public Boolean login(String userName,String password) throws Exception;
+	 /**
+	  * 
+	  * @param userName
+	  * @return	true/false
+	  * @throws Exception
+	  */
+	 public Boolean DeleteUser(String userName) throws Exception;
 
 }

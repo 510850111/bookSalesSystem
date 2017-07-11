@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import java.sql.ResultSet;
+
 import dao.IShopCartDao;
 import vo.Book;
 import vo.shopCar;
@@ -19,8 +21,15 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 
 	@Override
 	public boolean doCreate(shopCar vo) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "INSERT INTO shopcart(sid,uid,bid,price,isOrder,isPurchase) VALUES(?,?,?,?,?,?)";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setInt(0, vo.getSid());
+		super.pstmt.setInt(1, vo.getUid());
+		super.pstmt.setInt(2, vo.getPrice());
+		super.pstmt.setInt(3, vo.getIsOrder());
+		super.pstmt.setInt(4, vo.getIsPurchase());
+		
+		return super.pstmt.executeUpdate() > 0;
 	}
 
 	@Override
@@ -43,8 +52,19 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 
 	@Override
 	public List<shopCar> findAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		List<shopCar> all = new ArrayList<shopCar>();
+		String sql="SELECT sid,price,isOrder,isPurchase FROM shopcart";
+		super.pstmt=super.conn.prepareStatement(sql);
+		ResultSet rs=super.pstmt.executeQuery();
+		while(rs.next()){
+			shopCar vo=new shopCar();
+			vo.setSid(rs.getInt(1));
+			vo.setPrice(rs.getInt(2));
+			vo.setIsOrder(rs.getInt(3));
+			vo.setIsPurchase(rs.getInt(4));
+			all.add(vo);
+		}
+		return all;
 	}
 
 	@Override
@@ -64,6 +84,20 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 		Book book=new Book();
 		//返回请求热门书籍
 		return data;
+	}
+
+	@Override
+	public Boolean DeleteArticle(Integer sid) throws Exception {
+		Boolean flag=false;
+		shopCar vo=new shopCar();
+		String sql="DELETE FROM shopcart WHERE sid=?";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setLong(1, vo.getUid());
+		ResultSet rs=(ResultSet) super.pstmt.executeQuery();
+		if(rs.next()){
+			flag=true;
+		}
+		return flag;
 	}
 
 }

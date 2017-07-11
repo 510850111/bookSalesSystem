@@ -3,10 +3,10 @@ package dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.Transaction;
+//import org.hibernate.cfg.Configuration;
 
 /**
  * 实现dao接口中的一些公共方法
