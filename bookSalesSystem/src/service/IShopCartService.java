@@ -10,7 +10,7 @@ public interface IShopCartService {
 	 * @return 返回购物车属性
 	 * @throws Exception
 	 */
-	public List<shopCar> shopCart(int num,String number) throws Exception;
+	public List<shopCar> shopCart(int num) throws Exception;
 	
 	/**
 	 * 
@@ -18,4 +18,11 @@ public interface IShopCartService {
 	 * @throws Exception
 	 */
 	public List<shopCar> shopCart() throws Exception;
+	/**
+	 * 
+	 * @param vo
+	 * @return true/false
+	 * @throws Exception
+	 */
+	public Boolean AddshopCart(shopCar vo) throws Exception;
 }

@@ -48,6 +48,7 @@ public class UserServlet extends HttpServlet {
 
 	private String changePassword(HttpServletRequest request, HttpServletResponse response) {
 		String userName ="";
+		int uid=0;
 		String oldPassword ="";
 		String newPassword = "";
 		String msg="";
@@ -60,11 +61,22 @@ public class UserServlet extends HttpServlet {
 		try{
 			userName = (String) request.getAttribute("phoneNumber");
 			oldPassword = (String) request.getAttribute("oldPAssword");
+			uid=(int) request.getAttribute("uid");
 			newPassword = (String) request.getAttribute("newPassword");
-			if(ServiceFactory.getIUserServiceInstance().changePassword(userName, oldPassword, newPassword)){
-				msg="修改成功";
-				url="成功修改密码后的密码";
+			if(ServiceFactory.getIUserServiceInstance().login(userName, oldPassword)){
+				if(ServiceFactory.getIUserServiceInstance().changePassword(uid, newPassword)){
+					msg="修改成功";
+					url="成功修改密码后的密码";
+				}
+				else{
+					msg="修改失败";
+					url="失败后";
+				}
+			}else{
+				msg="旧密码错误";
+				url="错误后";
 			}
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}

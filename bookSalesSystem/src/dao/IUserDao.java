@@ -14,7 +14,7 @@ public interface IUserDao extends IDAO<Integer,User> {
 	 * @return true/false
 	 * @throws Exception
 	 */
-	 public Boolean changePassword(String userName,String oldPassword,String newPassword) throws Exception;
+	 public Boolean changePassword(int uid,String newPassword) throws Exception;
 	 /**
 	  * 
 	  * @param phoneNumber
@@ -47,5 +47,12 @@ public interface IUserDao extends IDAO<Integer,User> {
 	  * @throws Exception
 	  */
 	 public Boolean DeleteUser(String userName) throws Exception;
+	 /**
+	  * 
+	  * @param uid
+	  * @return true/false
+	  * @throws Exception
+	  */
+	 public Boolean isAdmin(Integer uid) throws Exception;
 
 }
