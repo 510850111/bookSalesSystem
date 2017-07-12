@@ -135,7 +135,7 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 		List<Book> data= new ArrayList<>();
 		Book book=new Book();
 		//返回请求热门书籍
-		return data;
+		return this.findAll();
 	}
 
 }

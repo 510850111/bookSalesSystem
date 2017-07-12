@@ -1,8 +1,7 @@
-var catelogry = document.getElementById("isol").getElementsByTagName("ul")[0];
 function getCatelogry() {
+	var catelogry = document.getElementById("isol").getElementsByTagName("ul")[0];
 	var catelogryHTMLCode = "";
-	$
-			.ajax({
+	$.ajax({
 				type : "GET",
 				url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/getCategory",
 				success : function(data) {
@@ -17,6 +16,7 @@ function getCatelogry() {
 					console.log("failed" + JSON.stringify(e));
 				}
 			});
+
 }
 
 function getAllBooks() {

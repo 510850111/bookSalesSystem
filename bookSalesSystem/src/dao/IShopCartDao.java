@@ -20,4 +20,11 @@ public interface IShopCartDao extends IDAO<Integer,shopCar> {
 	  * @throws Exception
 	  */
 	 public Boolean DeleteArticle(Integer sid) throws Exception;
+	 /**
+	  * 
+	  * @param sid
+	  * @return true/false
+	  * @throws Exception
+	  */
+	 public Boolean AddshopCart(Integer sid) throws Exception;
 }

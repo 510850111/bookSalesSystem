@@ -100,4 +100,22 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 		return flag;
 	}
 
+	@Override
+	public Boolean AddshopCart(Integer sid) throws Exception {
+		Boolean flag=false;
+		shopCar vo=new shopCar();
+		String sql="INSERT INTO shopcart(uid,bid,price,isOrder,isPurchase) VALUES(?,?,?,?,?)";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setInt(0, vo.getBid());
+		super.pstmt.setInt(1, vo.getUid());
+		super.pstmt.setInt(2, vo.getPrice());
+		super.pstmt.setInt(3, vo.getIsOrder());
+		super.pstmt.setInt(4, vo.getIsPurchase());
+		ResultSet rs=super.pstmt.executeQuery();
+		if(rs.next()){
+			flag=true;
+		}
+		return flag;
+	}
+
 }
