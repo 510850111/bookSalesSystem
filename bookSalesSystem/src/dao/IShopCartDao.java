@@ -12,7 +12,8 @@ public interface IShopCartDao extends IDAO<Integer,shopCar> {
 	 * @return 返回购物车的数量
 	 * @throws Exception
 	 */
-	 public List<shopCar> shopCart(int num,String number) throws Exception;
+	 public List<shopCar> shopCart(int num) throws Exception;
+	 public List<shopCar> shopCart() throws Exception;
 	 /**
 	  * 
 	  * @param sid
@@ -20,11 +21,11 @@ public interface IShopCartDao extends IDAO<Integer,shopCar> {
 	  * @throws Exception
 	  */
 	 public Boolean DeleteArticle(Integer sid) throws Exception;
-	 /**
+	 /** 
 	  * 
 	  * @param sid
 	  * @return true/false
 	  * @throws Exception
 	  */
-	 public Boolean AddshopCart(Integer sid) throws Exception;
+	 public Boolean AddshopCart(shopCar vo) throws Exception;
 }

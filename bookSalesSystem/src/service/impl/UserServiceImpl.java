@@ -12,9 +12,9 @@ import vo.User;
 public class UserServiceImpl implements IUserService {
 private DatabaseConnection dbc = new DatabaseConnection();
 	
-	public Boolean changePassword(String userName,String oldPassword,String newPassword) throws Exception{
+	public Boolean changePassword(int uid,String newPassword) throws Exception{
 		try {
-            return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).changePassword(userName, oldPassword, newPassword);
+            return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).changePassword(uid, newPassword);
         } catch (Exception e) {
             throw e;
         } finally {
@@ -49,5 +49,27 @@ private DatabaseConnection dbc = new DatabaseConnection();
 			this.dbc.close();
 		}
 	}
+	@Override
+	public Boolean DeleteUser(String userName) throws Exception {
+		try{
+			return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).DeleteUser(userName);
+		}catch(Exception e){
+			throw e;
+		}finally{
+			this.dbc.close();
+		}
+	}
+	@Override
+	public Boolean isAdmin(Integer uid) throws Exception {
+		try{
+			return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).isAdmin(uid);
+		}catch(Exception e){
+			throw e;
+		}finally{
+			this.dbc.close();
+		}
+		
+	}
+	
 
 }

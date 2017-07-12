@@ -79,12 +79,6 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 		// TODO Auto-generated method stub
 		return -1;
 	} 
-	public List<shopCar> shopCart(int num,String number)throws Exception{
-		List<shopCar> data= new ArrayList<>();
-		Book book=new Book();
-		
-		return this.findAll();
-	}
 
 	@Override
 	public Boolean DeleteArticle(Integer sid) throws Exception {
@@ -101,21 +95,35 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 	}
 
 	@Override
-	public Boolean AddshopCart(Integer sid) throws Exception {
+	public Boolean AddshopCart(shopCar vo) throws Exception {
 		Boolean flag=false;
-		shopCar vo=new shopCar();
 		String sql="INSERT INTO shopcart(uid,bid,price,isOrder,isPurchase) VALUES(?,?,?,?,?)";
 		super.pstmt=super.conn.prepareStatement(sql);
-		super.pstmt.setInt(0, vo.getBid());
-		super.pstmt.setInt(1, vo.getUid());
-		super.pstmt.setInt(2, vo.getPrice());
-		super.pstmt.setInt(3, vo.getIsOrder());
-		super.pstmt.setInt(4, vo.getIsPurchase());
+		super.pstmt.setInt(1, vo.getBid());
+		super.pstmt.setInt(2, vo.getUid());
+		super.pstmt.setInt(3, vo.getPrice());
+		super.pstmt.setInt(4, vo.getIsOrder());
+		super.pstmt.setInt(5, vo.getIsPurchase());
 		ResultSet rs=super.pstmt.executeQuery();
 		if(rs.next()){
 			flag=true;
 		}
 		return flag;
 	}
+
+	@Override
+	public List<shopCar> shopCart(int num) throws Exception {
+		List<shopCar> data= new ArrayList<>();
+		Book book=new Book();
+		
+		return this.findAll();
+	}
+
+	@Override
+	public List<shopCar> shopCart() throws Exception {
+		List<shopCar> data= new ArrayList<>();
+		Book book=new Book();
+		
+		return this.findAll();	}
 
 }

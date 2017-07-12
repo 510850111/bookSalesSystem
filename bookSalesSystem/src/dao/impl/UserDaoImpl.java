@@ -81,20 +81,13 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 	}
 
 	@Override
-	public Boolean changePassword(String userName, String oldPassword, String newPassword) throws Exception {
-		Boolean flag=false;
-		String sql="UPDATE user SET password=? WHERE uid=?";
-		super.pstmt=super.conn.prepareStatement(sql);
-		
-		return super.pstmt.executeUpdate()>0;
-	}
 	public List<User> validMessage(String phoneNumber,String validCode) throws Exception{
 		List<User> data= new ArrayList<>();
 		User user=new User();
 		return data;
 	}
+	@Override
 	public Boolean register(String userName,String phoneNumber,String password) throws Exception{
-		User vo=new User();
 		Boolean blag=false;
 		String sql="INSERT INTO user VALUES ('"+userName+"', '"+password+"', '"+phoneNumber+"')";
 		super.pstmt=super.conn.prepareStatement(sql);
@@ -105,13 +98,13 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 		return blag;
 		
 	}
+	@Override
 	public Boolean login(String userName,String password) throws Exception{
-		User vo= new User();
 		boolean flag=false;
-		String sql="SELECT * FROM user WHERE uid=? AND password=? AND flag=1";
+		String sql="SELECT * FROM user WHERE uid=? AND password=?";
 		super.pstmt=super.conn.prepareStatement(sql);
-		super.pstmt.setString(1, vo.getUserName());
-		super.pstmt.setString(2, vo.getPassword());
+		super.pstmt.setString(1, userName);
+		super.pstmt.setString(2, password);
 		ResultSet rs=super.pstmt.executeQuery();
 		if(rs.next()){
 			flag=true;
@@ -122,16 +115,39 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 
 	@Override
 	public Boolean DeleteUser(String userName) throws Exception {
-		User vo=new User();
 		Boolean flag=false;
 		String sql="DELETE FROM user WHERE username=?";
 		super.pstmt=super.conn.prepareStatement(sql);
-		super.pstmt.setString(2, vo.getUserName());
+		super.pstmt.setString(1, userName);
 		ResultSet rs=super.pstmt.executeQuery();
 		if(rs.next()){
 			flag=true;
 		}
 		return flag;
+	}
+
+	@Override
+	public Boolean isAdmin(Integer uid) throws Exception {
+		boolean flag=false;
+		String sql="SELECT isAdmin FROM user WHERE uid=?";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setInt(0, uid);
+		ResultSet rs=super.pstmt.executeQuery();
+		if(rs.next()){
+			flag=true;
+		}
+		return flag;
+	}
+
+	@Override
+	public Boolean changePassword(int uid, String newPassword) throws Exception {
+		Boolean flag=false;
+		String sql="UPDATE user SET password=? WHERE uid=?";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setString(1, newPassword);
+		super.pstmt.setInt(2, uid);
+		
+		return super.pstmt.executeUpdate()>0;
 	}
 
 	
