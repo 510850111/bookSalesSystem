@@ -27,6 +27,7 @@ function getAllBooks() {
 				url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/getAllBooks",
 				success : function(data) {
 					data = eval(data);
+					alert(JSON.stringify(data));
 					for(var i = 0 ; i< data.length ; i++){
 						bookListHTMLCode += "<div class='urunliste'><div class='urun'>";
 						bookListHTMLCode += "<a href='#' class = 'uResim'><img src='pages/shop/img/uresim.png' alt=''/></a>";
