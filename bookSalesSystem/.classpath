@@ -8,16 +8,16 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/javax.servlet.jsp.jstl.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/jstl-impl-1.2.2.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/mysql-connector-java-5.0.4-bin.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/SmartUpload.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/json/commons-beanutils-1.7.0.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/json/commons-collections-3.2.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/json/commons-lang-2.4.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/json/commons-logging-1.1.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/json/ezmorph-1.0.4.jar"/>
-	<classpathentry kind="lib" path="F:/学习/javaweb/图书销售系统/bookSalesSystem/lib/json/json-lib-2.2.3-jdk13.jar"/>
+	<classpathentry kind="lib" path="lib/javax.servlet.jsp.jstl.jar"/>
+	<classpathentry kind="lib" path="lib/jstl-impl-1.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.0.4-bin.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib/SmartUpload.jar"/>
+	<classpathentry kind="lib" path="lib/json/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/json/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="lib/json/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/json/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/json/ezmorph-1.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/json/json-lib-2.2.3-jdk13.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

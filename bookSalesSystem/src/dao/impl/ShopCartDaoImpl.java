@@ -79,11 +79,11 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 		// TODO Auto-generated method stub
 		return -1;
 	} 
-	public List<shopCar> shopCart(int num,String number){
+	public List<shopCar> shopCart(int num,String number)throws Exception{
 		List<shopCar> data= new ArrayList<>();
 		Book book=new Book();
-		//返回请求热门书籍
-		return data;
+		
+		return this.findAll();
 	}
 
 	@Override
@@ -94,6 +94,24 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 		super.pstmt=super.conn.prepareStatement(sql);
 		super.pstmt.setLong(1, vo.getUid());
 		ResultSet rs=(ResultSet) super.pstmt.executeQuery();
+		if(rs.next()){
+			flag=true;
+		}
+		return flag;
+	}
+
+	@Override
+	public Boolean AddshopCart(Integer sid) throws Exception {
+		Boolean flag=false;
+		shopCar vo=new shopCar();
+		String sql="INSERT INTO shopcart(uid,bid,price,isOrder,isPurchase) VALUES(?,?,?,?,?)";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setInt(0, vo.getBid());
+		super.pstmt.setInt(1, vo.getUid());
+		super.pstmt.setInt(2, vo.getPrice());
+		super.pstmt.setInt(3, vo.getIsOrder());
+		super.pstmt.setInt(4, vo.getIsPurchase());
+		ResultSet rs=super.pstmt.executeQuery();
 		if(rs.next()){
 			flag=true;
 		}
