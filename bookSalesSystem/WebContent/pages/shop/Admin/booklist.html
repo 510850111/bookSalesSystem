@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>添加图书信息</title>
+
+</head>
+
+
+<body>
+
+
+	<form>
+		<table align="center" width="450">
+			<tr>
+				<td align="center" colspan="2">
+					<h2>添加图书信息</h2>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">图书名称：</td>
+				<td><input type="text" id="bookName"></td>
+			</tr>
+
+			<tr>
+				<td align="right">价 格：</td>
+				<td><input type="text" id="price"></td>
+			</tr>
+
+			<tr>
+				<td align="right">数 量：</td>
+				<td><input type="text" id="counts" /></td>
+			</tr>
+
+			<tr>
+				<td align="right">作 者：</td>
+				<td><input type="text" id="author" /></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"></td>
+			</tr>
+		</table>
+	</form>
+
+	<div style="text-aglin: center;">
+		<button style="display: block;" type="button"
+			onclick="javascript:submit();">添 加</button>
+	</div>
+
+	<h2 align="center">
+		<a
+			href="http://localhost:8080/bookSalesSystem/pages/shop/Admin/AddBook.html">查询图书信息</a>
+	</h2>
+
+
+</body>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+	function submit() {
+		var bookName = document.getElementById("bookName").value;
+		var price = document.getElementById("price").value;
+		var counts = document.getElementById("counts").value;
+		var author = document.getElementById("author").value;
+		alert("bookName" + bookName + " price:" + price + " counts:" + counts
+				+ " author: " + author);
+
+		$.ajax({
+					type : "POST",
+					url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/insertBook",
+					data : {
+						"bookName" : bookName,
+						"price" : price,
+						"counts" : counts,
+						"author" : author
+					},
+					success : function(data) {
+						data = eval(data);
+						alert(JSON.stringify(data));
+						if (data[0].status == false) {
+							alert("添加失败!");
+						} else {
+							alert("添加成功!");
+							window.history.back(-1);
+
+						}
+					},
+					error : function(e) {
+						console.log("[getAD]failed" + JSON.stringify(e));
+					}
+
+				});
+	}
+</script>
+</html>

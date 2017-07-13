@@ -79,7 +79,7 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 		// TODO Auto-generated method stub
 		return -1;
 	} 
-	public List<shopCar> shopCart(int num,String number)throws Exception{
+	public List<shopCar> shopCart(int num)throws Exception{
 		List<shopCar> data= new ArrayList<>();
 		Book book=new Book();
 		
@@ -116,6 +116,12 @@ public  class ShopCartDaoImpl extends AbstractDaoImpl implements IShopCartDao{
 			flag=true;
 		}
 		return flag;
+	}
+
+	@Override
+	public List<shopCar> shopCart() throws Exception {
+		// TODO Auto-generated method stub
+		return findAll();
 	}
 
 }

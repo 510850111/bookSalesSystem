@@ -82,9 +82,10 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 
 	@Override
 	public Boolean changePassword(String userName, String oldPassword, String newPassword) throws Exception {
-		Boolean flag=false;
-		String sql="UPDATE user SET password=? WHERE uid=?";
+		String sql="UPDATE user SET password=?, userName=?";
 		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setString(1,newPassword);
+        super.pstmt.setString(2, userName);
 		
 		return super.pstmt.executeUpdate()>0;
 	}
@@ -94,24 +95,23 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 		return data;
 	}
 	public Boolean register(String userName,String phoneNumber,String password) throws Exception{
-		User vo=new User();
 		Boolean blag=false;
-		String sql="INSERT INTO user VALUES ('"+userName+"', '"+password+"', '"+phoneNumber+"')";
+		String sql="INSERT INTO user(username,phoneNumber,password) VALUES(?,?,?)";
 		super.pstmt=super.conn.prepareStatement(sql);
-		ResultSet rs=super.pstmt.executeQuery();
-		if(rs.next()){
-			blag=true;
-		}
-		return blag;
+		super.pstmt.setString(1,userName);
+        super.pstmt.setString(2, phoneNumber);
+        super.pstmt.setString(3,password);
+		
+        return super.pstmt.executeUpdate() > 0;
 		
 	}
 	public Boolean login(String userName,String password) throws Exception{
 		User vo= new User();
 		boolean flag=false;
-		String sql="SELECT * FROM user WHERE uid=? AND password=? AND flag=1";
+		String sql="SELECT * FROM user WHERE username=? AND password=?";
 		super.pstmt=super.conn.prepareStatement(sql);
-		super.pstmt.setString(1, vo.getUserName());
-		super.pstmt.setString(2, vo.getPassword());
+		super.pstmt.setString(1, userName);
+		super.pstmt.setString(2, password);
 		ResultSet rs=super.pstmt.executeQuery();
 		if(rs.next()){
 			flag=true;
@@ -132,6 +132,23 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 			flag=true;
 		}
 		return flag;
+	}
+	
+	public Boolean isAdmin(String userName) throws SQLException {
+		if (userName == null || userName =="") {
+			return false;
+		}
+		String sql = "SELECT username = ? FROM user";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setString(1, userName);
+		ResultSet rs=super.pstmt.executeQuery();
+		while(rs.next()){
+			if (rs.getString(1) == "1" || rs.getInt(1) == 1) {
+				return true;
+			}
+		}
+		return false;		
+		
 	}
 
 	

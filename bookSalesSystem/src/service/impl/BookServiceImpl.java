@@ -60,4 +60,14 @@ public class BookServiceImpl implements IBookService {
     	}
     }
     
+    public boolean insertBook(Book vo) {
+    	try{
+    		return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).insertBook(vo);
+    	}catch(Exception e){
+    		throw e;
+    	}finally{
+    		this.dbc.close();
+    	}
+	}
+    
 }

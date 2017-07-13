@@ -56,5 +56,7 @@ public interface IBookDao extends IDAO<Integer,Book> {
      */
     public List<Book> getHotBook() throws Exception;
 
+	public boolean insertBook(Book vo);
+
 
 }

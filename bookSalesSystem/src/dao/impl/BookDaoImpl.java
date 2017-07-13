@@ -123,19 +123,41 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 		List<Book> data=new ArrayList<>();
 		Book book=new Book();
 		//通過數據庫返回bid,bookName,price,img,author,salesNumber,score,abstract,surplus,categoryName
-		return this.findAll();
+		return findAll();
 	}
 	public List<Book> getAD() throws Exception{
 		List<Book> data= new ArrayList<>();
 		Book book=new Book();
 		//返回请求的广告
+		
 		return data;
 	}
 	public List<Book> getHotBook() throws Exception{
 		List<Book> data= new ArrayList<>();
 		Book book=new Book();
 		//返回请求热门书籍
-		return this.findAll();
+		return findAll();
+	}
+
+	@Override
+	public boolean insertBook(Book vo) {
+		boolean flag = false;
+		try {
+			
+			String sql = "INSERT INTO book(bookName,price,author,surplus) VALUES(?,?,?,?)";
+			super.pstmt = super.conn.prepareStatement(sql);
+	        super.pstmt.setString(1, vo.getBookName());
+	        super.pstmt.setInt(2,vo.getPrice());
+	        super.pstmt.setString(3, vo.getBookName());
+	        super.pstmt.setInt(4,vo.getPrice());
+	        flag =  super.pstmt.executeUpdate() > 0;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		return flag;
 	}
 
 }

@@ -20,7 +20,7 @@
 				</div>
 				<div class="sSag">
 					<a href="#"><b>注   销</b></a>
-					<a href="login.html"><b>登   录</b></a>
+					<a id="login" href="pages/shop/login.html"><b>登   录</b></a>
 				</div>
 			</div>
 			<div id="sosyal">
@@ -38,7 +38,7 @@
 		<div id="menu">
 			<ul>
 				<li><a class="aktif" href="#">首页</a></li>
-				<li><a href="#">管理</a></li>
+				<li><a href="pages/shop/Admin/booklist.html">管理</a></li>
 				<li><a href="personal information.html">资料</a></li>
 				<li><a href="#">帮助</a></li>
 			</ul>
@@ -69,30 +69,11 @@
 					<ul>
 						<li><a href="#">教育类</a></li>
 						<li><a href="#">文学类</a></li>
-						<li><a href="#">IT类</a></li>
-						<li><a href="#">儿童类</a></li>
-						<li><a href="#">经济管理类</a></li>
-						<li><a href="#">励志成功类</a></li>
-						<li><a href="#">人文社科类</a></li>
-						<li><a href="#">网络文学类</a></li>
-						<li><a href="#">科教进口类</a></li>
-						<li><a href="#">政治军事类</a></li>
-						<li><a href="#">中外传记类</a></li>
-						<li><a href="#">摄影后期类</a></li>
-						<li><a href="#">旅游地图类</a></li>
-						<li><a href="#">烹饪美食类</a></li>
-						<li><a href="#">农业林业类</a></li>
-						<li><a href="#">幼儿启蒙类</a></li>
-						<li><a href="#">影像影视类</a></li>
-						<li><a href="#">中小学辅教类</a></li>
-						<li><a href="#">考证丛书类</a></li>
-						<li><a href="#">心理学类</a></li>
-						<li><a href="#">独家出售类</a></li>
-						<li><a href="#">其它类</a></li>
+
 					</ul>
 					</div>
 				</div>
-				<div id="smenu">
+				<div id="hotBooks">
 					<span class="smb">热销图书</span>
 					<div class="smliste">
 						<ul class="urunliste">
@@ -103,33 +84,6 @@
 								<span>42.0 ￥</span>
 							</li>
 							
-							<li>
-								<a href="Details.html"><img src="pages/shop/img/resim5.png" alt=""/></a>
-								<a href="Details.html">MySQL</a>
-								<p>写得好，编排得好，需要参考时容易到爆！</p>
-								<span>83.2 ￥</span>
-							</li>
-							
-							<li>
-								<a href="Details.html"><img src="pages/shop/img/resim2.png" alt=""/></a>
-								<a href="Details.html">摄影技巧</a>
-								<p>一步一步学会用小手机拍出大作品，称霸朋友圈!</p>
-								<span>25.0 ￥</span>
-							</li>
-							
-							<li>
-								<a href="Details.html"><img src="pages/shop/img/resim4.png" alt=""/></a>
-								<a href="Details.html">烹饪技巧</a>
-								<p>本书做技术指导，让您一看就懂，一学就会。</p>
-								<span>6.5 ￥</span>
-							</li>
-							
-							<li>
-								<a href="Details.html"><img src="pages/shop/img/resim3.png" alt=""/></a>
-								<a href="Details.html">操作系统</a>
-								<p>教学资源丰富，理论教材，实践教材!</p>
-								<span>55.0 ￥</span>
-							</li>
 						</ul>
 					</div>
 				</div>
@@ -150,15 +104,7 @@
 						<li><a href="Details.html"><img src="pages/shop/img/mansetresim4.png" alt=""/></a></li>
 						<li><a href="Details.html"><img src="pages/shop/img/mansetresim.png" alt=""/></a></li>
 					</ul>
-					<div class="mansetalt">
-						<ul class="mansetnav">
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-						</ul>
-					</div>
+
 				</div>
 				<div id="gf">
 					<ul>
@@ -244,6 +190,9 @@
 	<script>
 	getAllBooks();
 		getCatelogry();
+		getAD();
+		getHotBooks();
+		getShopCart(1);
 		
 	</script>
 	

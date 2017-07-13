@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import vo.User;
@@ -47,5 +48,7 @@ public interface IUserDao extends IDAO<Integer,User> {
 	  * @throws Exception
 	  */
 	 public Boolean DeleteUser(String userName) throws Exception;
+	 
+	 public Boolean isAdmin(String userName) throws SQLException ;
 
 }

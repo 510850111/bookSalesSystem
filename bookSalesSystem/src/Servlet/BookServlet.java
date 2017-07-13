@@ -12,6 +12,7 @@ import util.test.TestMD5Code;
 import vo.Book;
 import vo.Category;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
@@ -39,8 +40,10 @@ public class BookServlet extends HttpServlet {
 				path = this.getCategory(request, response);
 			} else if ("getAD".equals(status)) {
 				path = this.getAD(request, response);
-			} else if (" getHotBooks".equals(status)) {
+			} else if ("getHotBooks".equals(status)) {
 				path = this.getHotBook(request, response);
+			} else if("insertBook".equals(status)){
+				this.insertBook(request, response);
 			}
 
 		}
@@ -48,23 +51,55 @@ public class BookServlet extends HttpServlet {
 
 	}
 
+	private void insertBook(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		String bookName = request.getParameter("bookName");
+		String price = request.getParameter("price");
+		String counts = request.getParameter("counts");
+		String author = request.getParameter("author");
+		
+		Book book = new Book();
+		book.setBookName(bookName);
+		book.setPrice(Integer.parseInt(price));
+		book.setSurplus(Integer.parseInt(counts));
+		book.setAuthor(author);
+		boolean flag = false;
+		
+		try {
+			flag = ServiceFactory.getIBookServiceInstance().insertBook(book);
+			if (flag) {
+				out.print("[{\"status\" : true}]");
+			}else {
+				out.print("[{\"status\" : false}]");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ;
+		
+	}
+
 	public String getAllBooks(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		
+
 		String msg = "";
 		String url = "/pages/index.html";
-		
-		boolean flag = false;
+
 		try {
 			List<Book> data;
 			data = ServiceFactory.getIBookServiceInstance().getAllBooks();
 			JSONArray jsonArray = JSONArray.fromObject(data);
+			System.out.println("getAllBooks:" + jsonArray);
 			// 输出数据
 			out.print(jsonArray);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -77,21 +112,21 @@ public class BookServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		
+
 		int index = Integer.parseInt((String) request.getAttribute("index"));
 		int num = Integer.parseInt((String) request.getAttribute("num"));
-		
+
 		String msg = "";
 		String url = "/pages/index.html";
-		
+
 		boolean flag = false;
 		try {
 			List<Book> data = null;
-			data = ServiceFactory.getIBookServiceInstance().getBooksBySplite(index,num);
+			data = ServiceFactory.getIBookServiceInstance().getBooksBySplite(index, num);
 			JSONArray jsonArray = JSONArray.fromObject(data);
 			// 输出数据
 			out.print(jsonArray);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -109,13 +144,13 @@ public class BookServlet extends HttpServlet {
 		String msg = "";
 		String url = "";
 
-
 		try {
 			msg = "获取分类成功";
 			url = "/pages/index.html";
 			List<Category> data;
-			data= ServiceFactory.getICategoryServiceInstance().getCategory();
+			data = ServiceFactory.getICategoryServiceInstance().getCategory();
 			JSONArray jsonArray = JSONArray.fromObject(data);
+			System.out.println("getCategory:" + jsonArray);
 			// 输出数据
 			out.print(jsonArray);
 
@@ -142,6 +177,7 @@ public class BookServlet extends HttpServlet {
 			url = "/pages/index.html";
 			data = ServiceFactory.getIBookServiceInstance().getAD();
 			JSONArray jsonArray = JSONArray.fromObject(data);
+			System.out.println("getAD:" + jsonArray);
 			// 输出数据
 			out.print(jsonArray);
 
@@ -157,17 +193,18 @@ public class BookServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		
+
 		String msg = "";
 		String url = "/pages/index.html";
-		
+
 		boolean flag = false;
 		try {
 			List<Book> data = null;
 			data = ServiceFactory.getIBookServiceInstance().getHotBook();
 			JSONArray jsonArray = JSONArray.fromObject(data);
+			System.out.println("getHotBook:" + jsonArray);
 			out.print(jsonArray);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

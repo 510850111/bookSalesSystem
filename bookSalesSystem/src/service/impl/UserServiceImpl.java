@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.mysql.jdbc.Connection;
@@ -43,6 +44,16 @@ private DatabaseConnection dbc = new DatabaseConnection();
 	public Boolean login(String userName,String password) throws Exception{
 		try{
 			return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).login(userName, password);
+		}catch(Exception e){
+			throw e;
+		}finally{
+			this.dbc.close();
+		}
+	}
+	@Override
+	public Boolean isAdmin(String userName) throws SQLException {
+		try{
+			return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).isAdmin(userName);
 		}catch(Exception e){
 			throw e;
 		}finally{

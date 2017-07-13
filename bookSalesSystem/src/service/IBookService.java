@@ -32,5 +32,7 @@ public interface IBookService {
 	  * @throws Exception
 	  */
 	 public List<Book> getHotBook() throws Exception;
+	 
+	 public boolean insertBook(Book vo);
 
 }

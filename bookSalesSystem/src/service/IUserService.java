@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import vo.User;
@@ -39,5 +40,7 @@ public interface IUserService {
 	 * @throws Exception
 	 */
 	public Boolean login(String userName,String password) throws Exception;
+	
+	public Boolean isAdmin(String userName) throws SQLException ;
 	
 }
