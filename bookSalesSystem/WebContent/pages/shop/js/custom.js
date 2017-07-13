@@ -173,7 +173,7 @@ function login(){
 
 function logout(){
 	$.ajax({
-		type : "GET",
+		type : "POST",
 		url : "http://localhost:8080/bookSalesSystem/pages/UserServlet/logout",
 		success : function(data) {
 			

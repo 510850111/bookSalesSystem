@@ -174,7 +174,7 @@ public class UserServlet extends HttpServlet {
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		String msg = ""; // 表示提示信息
 		String url = ""; // 表示跳转路径
-		request.setAttribute("aid", null);
+		request.setAttribute("userName", null);
 		msg = "注销成功";
 		url = "/login.jsp";
 		request.setAttribute("msg", msg);

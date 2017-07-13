@@ -34,5 +34,6 @@ public interface IBookService {
 	 public List<Book> getHotBook() throws Exception;
 	 
 	 public boolean insertBook(Book vo);
+	public boolean delByBid(int bid) throws Exception;
 
 }

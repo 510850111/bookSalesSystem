@@ -44,11 +44,28 @@ public class BookServlet extends HttpServlet {
 				path = this.getHotBook(request, response);
 			} else if("insertBook".equals(status)){
 				this.insertBook(request, response);
+			} else if("delByBid".equals(status)){
+				try {
+					this.delByBid(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		}
 		// request.getRequestDispatcher(path).forward(request, response);
 
+	}
+
+	private void delByBid(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		int bid= Integer.parseInt(request.getParameter("bid"));
+		
+		boolean flag = ServiceFactory.getIBookServiceInstance().delByBid(bid);
 	}
 
 	private void insertBook(HttpServletRequest request, HttpServletResponse response) throws IOException {
