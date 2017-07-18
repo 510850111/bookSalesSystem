@@ -126,7 +126,7 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 		Boolean flag=false;
 		String sql="DELETE FROM user WHERE username=?";
 		super.pstmt=super.conn.prepareStatement(sql);
-		super.pstmt.setString(2, vo.getUserName());
+		super.pstmt.setString(2, userName);
 		ResultSet rs=super.pstmt.executeQuery();
 		if(rs.next()){
 			flag=true;
@@ -148,6 +148,24 @@ public  class UserDaoImpl extends AbstractDaoImpl implements IUserDao{
 			}
 		}
 		return false;		
+		
+	}
+
+	@Override
+	public List<User> getpersonInformation(int uid) throws Exception {
+		List<User> all = new ArrayList<User>();
+		String sql="SELECT userName,phoneNumber,address FROM user WHERE uid=?";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setInt(1, uid);
+		ResultSet rs=super.pstmt.executeQuery();
+		while(rs.next()){
+			User vo = new User();
+			vo.setUserName(rs.getString(1));
+			vo.setPhoneNumber(rs.getString(2));
+			vo.setAddress(rs.getString(3));
+			all.add(vo);
+		}
+		return  all;
 		
 	}
 

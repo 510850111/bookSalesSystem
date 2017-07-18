@@ -60,5 +60,16 @@ private DatabaseConnection dbc = new DatabaseConnection();
 			this.dbc.close();
 		}
 	}
+	@Override
+	public List<User> getpersonInformation(int uid) throws Exception {
+		try{
+			return DAOFactory.getIUserDAOInstance((Connection) this.dbc.getConn()).getpersonInformation(uid);
+		}catch(Exception e){
+			throw e;
+		}finally{
+			this.dbc.close();
+		}
+		
+	}
 
 }

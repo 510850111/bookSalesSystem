@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 
 import dao.IBookDao;
 import vo.Book;
+import vo.User;
 
 
 public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
@@ -159,5 +160,28 @@ public class BookDaoImpl extends AbstractDaoImpl implements IBookDao {
 				
 		return flag;
 	}
+
+	@Override
+	public List<Book> getbookDetails(int bid) throws Exception {
+		List<Book> all = new ArrayList<Book>();
+		String sql="SELECT bookName,price,author,salesNumber,score,abstarct,detail,surplus FROM book WHERE bid=?";
+		super.pstmt=super.conn.prepareStatement(sql);
+		super.pstmt.setInt(1, bid);
+		ResultSet rs =super.pstmt.executeQuery();
+		while(rs.next()){
+			Book vo=new Book();
+			vo.setBookName(rs.getString(1));
+			vo.setPrice(rs.getInt(2));
+			vo.setAuthor(rs.getString(3));
+			vo.setSalesNumber(rs.getInt(4));
+			vo.setScore(rs.getString(5));
+			vo.set_abstract(rs.getString(6));
+			vo.setDetail(rs.getString(7));
+			vo.setSurplus(rs.getInt(8));
+			all.add(vo);
+		}
+		return all;
+	}
+
 
 }

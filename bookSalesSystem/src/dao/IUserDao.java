@@ -50,5 +50,7 @@ public interface IUserDao extends IDAO<Integer,User> {
 	 public Boolean DeleteUser(String userName) throws Exception;
 	 
 	 public Boolean isAdmin(String userName) throws SQLException ;
+	 
+	 public List<User> getpersonInformation(int uid) throws Exception;
 
 }

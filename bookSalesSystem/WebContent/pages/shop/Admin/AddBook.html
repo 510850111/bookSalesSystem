@@ -17,8 +17,7 @@ h2 {
 </head>
 <body>
 	<table align="center" width="450" border="1" height="180"
-		bordercolor="white" bgcolor="black" cellpadding="1" cellspacing="1"
-		id="tr">
+		bordercolor="white" bgcolor="black" cellpadding="1" cellspacing="1">
 		<tr bgcolor="white">
 			<td align="center" colspan="7">
 				<h2>所有图书信息</h2>
@@ -33,61 +32,33 @@ h2 {
 			<td><b>修改数量 </b></td>
 			<td><b>删除</b></td>
 		</tr>
+	
+		<tr align="center"  bgcolor="white">
+			<td></td>
+			<td id = "bookName"></td>
+			<td id = "price"></td>
+			<td id = "counts"></td>
+			<td id = "author"></td>
+			<td >
+				
+			</td>
+		    <td>
+		    <a href="DeleteServlet?bookid=<%=book.getId()%>">删除</a>
+		    </td>
 
+
+		</tr>
+		
 	</table>
 	<h2 align="center">
-		<a
-			href="http://localhost:8080/bookSalesSystem/pages/shop/Admin/booklist.html">返回添加图书信息页面</a>
+		<a href="http://localhost:8080/bookSalesSystem/pages/shop/Admin/booklist.html">返回添加图书信息页面</a>
 	</h2>
 
 </body>
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script>
-load();
 
-function load(){
-	var tr = document.getElementById("tr");
-	var tdHTMLCode = tr.innerHTML;
-	$.ajax({
-				type : "GET",
-				url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/getAllBooks",
-				success : function(data) {
-					data = eval(data);
-					for (var i = 0; i < data.length; i++) {
-						tdHTMLCode += "<tr align='center' bgcolor='white'>"
-						tdHTMLCode += "<td id='" + data[i].bid + "'>"
-								+ data[i].bid + "</td>";
-						tdHTMLCode += "<td id='" + data[i].bookName + "'>"
-								+ data[i].bookName + "</td>";
-						tdHTMLCode += "<td id='" + data[i].price + "'>"
-								+ data[i].price + "</td>";
-						tdHTMLCode += "<td id='" + data[i].surplus + "'>"
-								+ data[i].surplus + "</td>";
-						tdHTMLCode += "<td id='" + data[i].author + "'>"
-								+ data[i].author + "</td>";
-						tdHTMLCode += "<td></td><td><a href='javascript:delByBid("
-								+ data[i].bid + ")'>删除</a></td>"
-						tdHTMLCode += "</tr>";
 
-					}
-					tr.innerHTML = tdHTMLCode;
-				},
-				error : function(e) {
-					console.log("[getAllBooks]failed" + JSON.stringify(e));
-				}
-			});
-}
-	function delByBid(bid) {
-		$.ajax({
-					type : "POST",
-					url : "http://localhost:8080/bookSalesSystem/pages/BookServlet/delByBid",
-					data:{"bid":bid},
-					success : function() {
-						window.location.reload();
-					},error(e){
-						console.log(JSON.stringify(e));
-					}
-				});
-	}
+
 </script>
 </html>

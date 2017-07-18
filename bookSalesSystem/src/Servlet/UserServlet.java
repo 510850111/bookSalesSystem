@@ -15,10 +15,10 @@ import net.sf.json.JSONArray;
 import vo.Book;
 import vo.User;
 
+@SuppressWarnings("serial")
 @WebServlet(name = "UserServlet", urlPatterns = "/pages/UserServlet/*")
 public class UserServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,20 +27,17 @@ public class UserServlet extends HttpServlet {
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/pages/errors.jsp"; // 定义错误页面
 		String status = request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/") + 1);
 		System.out.println("status = " + status);
 		if (status != null) {
 			if ("login".equals(status)) {
-				path = this.login(request, response);
+				this.login(request, response);
 			} else if ("logout".equals(status)) {
-				path = this.logout(request, response);
+				this.logout(request, response);
 			} else if ("register".equals(status)) {
-				path = this.register(request, response);
-			} else if ("validMessage".equals(status)) {
-				path = this.validMessage(request, response);
+				this.register(request, response);
 			} else if ("changePassword".equals(status)) {
-				path = this.changePassword(request, response);
+				this.changePassword(request, response);
 			}
 		}
 		// request.getRequestDispatcher(path).forward(request, response);
@@ -68,7 +65,7 @@ public class UserServlet extends HttpServlet {
 			if(ServiceFactory.getIUserServiceInstance().login(userName, oldPassword)){
 				if (ServiceFactory.getIUserServiceInstance().changePassword(userName, oldPassword, newPassword)) {
 					msg = "修改成功";
-					url = "成功修改密码后的密码";
+					url = "成功修改后的地址";
 					out.print("[{\"status\" : true}]");
 				}
 			}else{
@@ -82,29 +79,6 @@ public class UserServlet extends HttpServlet {
 
 		return "";
 	}
-
-	private String validMessage(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("application/json; charset=utf-8");
-		PrintWriter out = response.getWriter();
-		Boolean flag = false;
-		String phoneNumber = "";
-		String validCode = "";
-		List<User> data = null;
-		// 调用第三方API,验证验证码正确性
-		try {
-			phoneNumber = (String) request.getAttribute("phoneNumber");
-			validCode = (String) request.getAttribute("validCode");
-			data = ServiceFactory.getIUserServiceInstance().validMessage(phoneNumber, validCode);
-			JSONArray jsonArray = JSONArray.fromObject(data);
-			// 输出数据
-			out.print(jsonArray);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public String register(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();
 		String msg = "";
@@ -142,7 +116,6 @@ public class UserServlet extends HttpServlet {
 		String userName = "";
 		String password = "";
 
-		User vo = new User();
 		try {
 			userName = (String) request.getParameter("userName");
 			password = (String) request.getParameter("password");
@@ -164,11 +137,7 @@ public class UserServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if (true) {
-			vo.setIsAdmin(true);
-		}
-
-		return "/pages/forward.jsp";
+		return "/";
 	}
 
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
@@ -179,7 +148,21 @@ public class UserServlet extends HttpServlet {
 		url = "/login.jsp";
 		request.setAttribute("msg", msg);
 		request.setAttribute("url", url);
-		return "/pages/forward.jsp";
+		return "";
+	}
+	public List<User> personInformation(HttpServletRequest request, HttpServletResponse response){
+		String msg="";
+		String url="";
+		List<User> data=null;
+		int uid=0;
+		uid=(int) request.getAttribute("uid");
+		try {
+			data=ServiceFactory.getIUserServiceInstance().getpersonInformation(uid);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		return data;
 	}
 
 }

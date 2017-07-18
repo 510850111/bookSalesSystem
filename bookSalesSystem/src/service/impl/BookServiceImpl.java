@@ -72,14 +72,13 @@ public class BookServiceImpl implements IBookService {
 
 
 	@Override
-	public boolean delByBid(int bid) throws Exception {
+	public List<Book> getbookDetails(int bid) throws Exception {
 		try{
-    		return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).deleteByBid(bid);
-    	}catch(Exception e){
-    		throw e;
-    	}finally{
-    		this.dbc.close();
-    	}
+			return DAOFactory.getIBookDAOInstance((Connection) this.dbc.getConn()).getbookDetails(bid);
+		}catch(Exception e){
+			throw e;
+		}finally{
+			this.dbc.close();
+		}
 	}
-    
 }

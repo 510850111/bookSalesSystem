@@ -173,7 +173,7 @@ function login(){
 
 function logout(){
 	$.ajax({
-		type : "POST",
+		type : "GET",
 		url : "http://localhost:8080/bookSalesSystem/pages/UserServlet/logout",
 		success : function(data) {
 			
@@ -211,6 +211,14 @@ function changePassword(){
 	})
 }
 
+/*
+<div id="arama">
+<form action="#" method="POST">
+	<input type="text"/>
+	<button type="Submit"></button>
+</form>
+</div>
+*/
 function search(keyWord){
 	var searchBookListDiv = document.getElementById("searchDiv");
 	var searchBookListHTMLCode = "";
@@ -240,13 +248,112 @@ function search(keyWord){
 	
 	
 }
-
-
+/*
+<div class="isag-1">
+<div class="isag-1-1">
+	<img src="img/3.jpg">
+</div>
+<div class="isag-1-2">
+	<span>我的昵称<br />
+	我的電話<br />
+	我的地址<br />
+           <a href="#">修改地址请点击此处</a></span>
+</div>
+</div> */
 
 function getPersonInfomation(){
+	var personInformation=document.getElementById("isag-1");
+	var personInformationHTMLCode="";
+	$.ajax({
+		type : "GET",
+		url : "http://localhost:8080/bookSalesSystem/pages/UserServlet/personInformation",
+		success : function(data) {
+			data=eval(data);
+			console.log(JSON.stringify(data));
+			for(var i = 0; i < data.length; i++){
+				personInformationHTMLCode +="<div class='isag-1-1'>";
+				personInformationHTMLCode +="<img src='"+ data[i].uid+"'></div>";
+				personInformationHTMLCode +="<div class='isag-1-2'>"+ data[i].username +"";
+				personInformationHTMLCode +="<span>"+ data[i].phoneNumber +"</span>";
+				personInformationHTMLCode +="<span>"+ data[i].address +"</span></div>";
+			}
+			personInformation.innerHTML = personInformationHTMLCode;
+		},
+		error : function(e) {
+			console.log("[getPersonInfomation]failed" + JSON.stringify(e));
+		}
+	});
 	
 }
 
+function shopCart(){
+	var shopCartFirstItemName = document.getElementById("isag");
+	var shopCartHTMLCode = shopCartFirstItemName.innerHTML;
+	$.ajax({
+		type : "GET",
+		url : "http://localhost:8080/bookSalesSystem/pages/shopCartServlet/getShopCart",
+		success : function(data) {
+			data = eval(data);
+			console.log("获取成功！数据如下："+JSON.stringify(data));
+//			console.log(shopCartHTMLCode);
+			for (var i = 0; i < data.length; i++) {
+				
+				shopCartHTMLCode += "<div class='isag-3'><div class='isag-3-1'>";
+				shopCartHTMLCode += "<img src='http://localhost:8080/bookSalesSystem/pages/shop/img/uresim.png'>";
+				shopCartHTMLCode += "<span>" + data[i].sid+ "</span></div>";
+				shopCartHTMLCode += "<div class='isag-3-2'>"+ data[i].isPurchase + "</div>";
+				shopCartHTMLCode +="<div class='isag-3-3'>"+ data[i].isOrder + "</div>";
+				shopCartHTMLCode +="<div class='isag-3-4'>"+ data[i].price + "</div></div>";
+				console.log(shopCartHTMLCode);
+			}
+			console.log(shopCartHTMLCode);
+			shopCartFirstItemName.innerHTML = shopCartHTMLCode;
+		},
+		error : function(e) {
+			console.log("[shopCart]failed" + JSON.stringify(e));
+		}
+	});
+	
+}
+/*
+<div class="isag-1-2">
+<span>图书名称:一本正经的小黄书<br />
+类别：值得深究哦<br />
+生产厂家：翔翔公司<br />
+上架时间：2016-7-7<br />
+配送服务：sfoa;jasovnaso;hpaijg;dhdgdfhdgdp<br />
+附送：一支晨光笔<br /></span>
+</div>
+*/
+function bookDetails(){
+	var Details= document.getElementById();
+	var DetailsHTMLCode = Details.innerHTML;
+	$.ajax({
+		type : "GET",
+		url : "http://localhost:8080/bookSalesSystem/pages/shopCartServlet/getbookDetails",
+		success : function(data) {
+			data = eval(data);
+			console.log(JSON.stringify(data));
+			for(var i = 0; i < data.length; i++) {
+				DetailsHTMLCode +="<div class='isag-1-2'>";
+				DetailsHTMLCode +="<span>"+ data[i].bookName +"<br/>"
+				DetailsHTMLCode +=""+ data[i].price +"<br/>";
+				DetailsHTMLCode +=""+ data[i].author +"<br/>";
+				DetailsHTMLCode +=""+ data[i].salesNumber +"<br/>";
+				DetailsHTMLCode +=""+ data[i].score +"<br/>";
+				DetailsHTMLCode +=""+ data[i].abstract +"<br/>"
+				DetailsHTMLCode +=""+ data[i].detail +"<br/>";
+				DetailsHTMLCode +=""+ data[i].surplus +"<br/></span></div>";
+				
+			}
+			Details.innerHTML = DetailsHTMLCode;
+		},
+		error : function(e) {
+			console.log("[bookDetails]failed" + JSON.stringify(e));
+		}
+		
+	});
+}
 
 
 

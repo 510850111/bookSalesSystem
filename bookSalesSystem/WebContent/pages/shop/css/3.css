@@ -1,0 +1,738 @@
+@charset "UTF-8";
+@import url('reset.css');
+
+
+body {
+margin:auto;
+background:url(../img/bg.jpg) repeat-x;
+font:12px Arial}
+
+#genel {
+width:960px;
+margin:0 auto;
+position:relative}
+
+#header {
+height:88px}
+
+#logo {float:left}
+
+#sepet {width:612px;
+height:63px;
+background:url(../img/sepet-bg.png);
+float:right;
+margin-top:8px}
+
+.sSol {float:left;
+position:relative;
+width:400px}
+
+.sepetDetay {margin:14px 55px;}
+
+.sepetDetay span , .sepetDetay strong {
+display:block;
+font-size:11px}
+
+.sepetDetay span {
+border-bottom:1px dashed #769aa9;
+color:#ffbe0e;
+padding-bottom:3px;
+width:280px}
+
+.sepetDetay span i {
+color:#ffd800;
+font-weight:bold}
+
+.sepetDetay strong {
+color:#fff;
+padding-top:3px}
+
+.sepetDetay strong i{
+color:#ff7800;
+font-weight:bold}
+
+.kasa {display:block;
+width:108px;
+position:absolute;
+top:14px;
+right:10px;
+height:34px;
+background:url(../img/kasa-bg.png);
+text-align:center;
+font:bold 11px Arial;color:#fff;
+line-height:34px}
+
+.kasa:hover {
+background-position:0 -40px}
+
+.sSag {float:right}
+
+.sSag a {
+color:#fff;
+padding:9px 37px;
+display:block;
+float:left; 
+text-align:center}
+
+.sSag a b {font-weight:bold}
+
+.sSag a:hover b , .sSag a.aktif b {color:#ff840d}
+
+#sosyal {
+position:absolute;
+top:65px;
+right:60px}
+
+#sosyal .sab {
+width:145px;
+height:22px;
+display:block;
+background:url(../img/sosyal.png)}
+
+#sosyal a {
+margin-top:8px;
+loat:left;
+margin-left:10px}
+
+#sosyal i {display:none;w
+idth:51px;
+height:63px;
+background:url(../img/s-ok.png);
+position:absolute;
+right:-40px;top:0}
+		
+#menu {}
+#menu ul li {float:left}
+
+#menu ul li a {
+color:#748891;
+display:block;
+padding:9px}
+
+#menu ul li a:hover , #menu ul li a.aktif {
+text-decoration:underline}
+		
+#icerik {margin-top:110px}
+
+#icerikust {
+margin-bottom:10px;
+height:40px}
+
+#icerikust ul {
+float:left;
+margin-top:10px;}
+
+#icerikust ul li {
+float:left;
+padding:0 3px}
+
+#icerikust ul li a {
+display:block;
+padding:0 5px;
+color:#38515b;
+font-size:15px;
+border-bottom:1px solid transparent}
+
+#icerikust ul li a:hover , #icerik ul li a.aktif {
+border-bottom:1px dashed #237d88}
+
+#icerikust ul li a b {font-weight:bold}
+
+#fbegen {
+background-color:#fff;
+float:left;
+width:141px;
+height:26px;
+display:block;
+padding:3px 10px;
+border-radius:5px;
+margin-right:2px;
+margin-top:5px}
+
+#arama {float:right}
+
+#arama input{
+width:175px;
+height:37px;
+border:none;
+background:url(../img/ara.png);
+float:left;
+padding:5px 40px;
+margin:2px 0px;
+font-size:11px;
+color:#333}
+
+#arama button {
+width:46px;
+height:39px;
+background:url(../img/bul.png);
+border:none;cursor:pointer}
+			
+#isol {
+width:221px;
+float:left}
+
+#smenu .smb{
+display:block;
+width:221px;
+height:48px;
+background:url(../img/kat-bas.png);
+color:#fff;
+font-size:16px;
+font-weight:bold;
+text-align:center;
+line-height:40px}
+
+#smenu .smliste {
+background:url(../img/kat-orta.png) repeat-y;
+width:221px}
+
+#smenu .smliste ul {
+background:url(../img/kat-alt.png) no-repeat bottom;
+padding-bottom:20px;
+width:221px}
+
+#smenu .smliste ul li a{
+display:block;
+padding:5px 10px;
+margin-left:22px;
+color:#252525;
+font-size:13px}
+
+#smenu .smliste ul li a.aktif ,
+#smenu .smliste ul li a:hover 
+{background:url(../img/menu-hover.png) no-repeat;
+color:#fff;
+font-weight:bold}
+		
+#smenu .smliste .urunliste {}
+#smenu .smliste .urunliste li {
+height:80px}
+
+#smenu .smliste .urunliste li a {
+color:#f90000;
+font-weight:bold;margin:0;
+padding:0;
+font-size:11px;
+padding-top:5px;
+padding-bottom:2px}
+#smenu .smliste .urunliste li a:hover {
+background:transparent;
+color:#333}
+#smenu .smliste .urunliste li img {
+display:block;
+float:left;
+padding:5px;
+margin:0;}
+
+#smenu .smliste .urunliste li p {
+font-size:11px;
+padding-right:5px}
+
+#smenu .smliste .urunliste li span {
+float:right;
+margin-right:15px;
+font-size:15px;
+font-weight:bold}
+				
+#haberinolsun {
+width:221px;
+height:187px;
+background:url(../img/ho.png)}
+
+#haberinolsun span {
+color:#945810;
+padding:50px 20px 10px 20px;
+display:block}
+
+#haberinolsun span b {
+font-weight:bold}
+
+#haberinolsun form input {
+color:#ff4e00;
+width:154px;
+height:27px;
+line-height:24px;
+background:url(../img/sprite.png);
+border:0;
+font-size:11px;
+padding:0 10px;
+display:block;
+margin-left:20px;
+margin-bottom:5px}
+
+#haberinolsun form button {
+width:84px;
+height:27px;
+background:url(../img/sprite.png) 0 -31px;
+border:0;
+margin:5px 20px}
+
+#haberinolsun form button:hover {
+background-position:0 -60px;c
+ursor:pointer}
+			
+#isag {
+float:right;
+width:735px;}
+
+#manset {
+float:left;
+width:485px;
+height:363px;
+background:url(../img/manset.png);
+position:Relative;
+z-index:100}
+
+#manset ul.mansetresim img{
+margin:8px}
+#manset .bx-wrapper {}
+
+#manset .bx-pager {
+width:120px;
+margin:0px auto}
+
+#manset .bx-pager a{
+display:block;
+float:left;
+background:url(../img/slider-nav.png);
+width:20px;
+height:20px;
+margin:10px 2px;
+text-indent:-9999px}
+
+#manset .bx-pager a:hover , #manset .bx-pager a.pager-active {
+background-position:-22px 0}
+
+#manset .mansetalt {
+position:relative}
+
+#manset a.bx-prev {
+display:block;
+width:14px;
+height:15px;
+background:url(../img/manset-ok.png);
+position:absolute;
+left:70px;
+bottom:-28px;
+text-indent:-9999px}
+
+#manset a.bx-prev:hover {
+background-position:0 -17px}
+
+#manset a.bx-next {
+display:block;
+width:14px;
+height:15px;
+background:url(../img/manset-ok.png) -17px 0;
+position:absolute;
+right:70px;
+bottom:-28px;
+text-indent:-9999px}
+
+#manset a.bx-next:hover {
+background-position:-17px -17px}
+
+#gf {
+width:244px;
+height:203px;
+background:url(../img/gf-bg.png);
+float:right;
+padding-top:50px;
+position:relative}
+
+#gf ul li {
+clear:both;
+height:50px;
+margin-left:25px}
+
+#gf ul li:hover a {
+text-decoration:underline}
+
+#gf ul li:hover img {opacity:0.6}
+
+#gf ul li img {
+float:left;
+margin-right:8px}
+
+#gf ul li a {
+font-size:11px;
+color:#ff005a;
+font-weight:bold;
+padding-bottom:5px;
+padding-top:3px;
+display:block}
+
+#gf ul li span {
+font-size:18px;
+color:#44c207}
+
+#gf ul li strong {
+color:#979797;
+font-size:11px;
+text-decoration:line-through;
+padding-left:5px}
+
+#gf a.bx-prev , #gf a.bx-next {
+display:block;
+background:url(../img/gf-ok.png);
+position:absolute;
+text-indent:-9999px}
+
+#gf a.bx-prev {
+width:19px;
+height:16px;
+left:98px;
+bottom:-43px;
+background-position:0 0}
+
+#gf a.bx-prev:hover {
+opacity:0.7}
+
+#gf a.bx-next {
+width:14px;
+height:16px;
+background-position:-20px -4px;
+left:145px;
+bottom:-45px}
+
+#gf a.bx-next:hover {opacity:0.7}
+
+#urunliste {}
+
+#urunliste .urunliste {
+margin-left:-4px;}
+
+.urun {
+width:341px;
+height:183px;
+background:url(../img/urun-bg.png);
+float:left;
+margin:4px;
+padding:10px;
+position:relative}
+
+.urun .uResim {
+display:block;
+float:left;
+margin:15px 8px}
+
+.urun .uBaslik {
+color:#070707;
+font-size:13px;
+display:block;
+padding-top:18px;
+font-weight:bold;
+padding-bottom:5px}
+
+.urun .uAbaslik {
+color:#ff0000;
+font-weight:bold}
+
+.urun p {
+padding:5px 0;
+font-size:11px;
+color:#666666}
+
+.urun span {
+color:#ff4200;
+font-size:18px;
+font-weight:Bold}
+
+.urun a.incele {
+display:block;
+background:url(../img/incele.png);
+width:64px;
+height:19px;
+position:absolute;
+right:130px;bottom:20px}
+
+.urun a.incele:hover {
+background-position:0 -21px}
+
+.urun a.sepeteat {
+display:block;
+width:103px;
+height:44px;
+background:url(../img/sprite.png) -96px -34px;
+position:absolute;
+right:20px;
+bottom:10px}
+
+.urun a.sepeteat:hover {
+background-position:-97px -82px;}
+
+.copyrights{
+text-indent:-9999px;
+height:0;
+line-height:0;
+font-size:0;overflow:hidden;}
+
+
+
+			#isag {float:right;width:735px;
+				height:610px;
+				background-color:#FFFFCC;
+				border-radius:15px 15px 15px 15px;
+			}
+			.isag-1{
+				width:735px;
+				height:30px;
+				float:right;
+				border-radius:15px 15px 15px 15px;
+				background-color: #990066 ;
+				
+			}
+
+			.isag-1 ul{
+				list-style: none;
+				
+
+			}
+			.isag-1 ul li{
+				font-size: 20px;
+				margin-right: 100px;
+				margin-left: 20px;
+				float:left;
+				
+			}
+			.isag-1 ul li a{
+				text-decoration: none;
+				color:white;
+				font-family: 微软雅黑;
+				
+
+			}
+			.isag-1 ul li a:hover{
+				color:pink;
+			}	
+
+			.isag-2{
+				width:735px;
+				height:30px;
+				float:right;
+				border-radius:15px 15px 15px 15px;
+				
+				margin-top:20px;
+			}
+			.isag-2-1{
+				width:50px;
+				height:30px;
+				float:left;
+				font-size:15px;
+				
+				font-family: 微软雅黑;
+				background-color:#FFFF99;
+				border:1px dashed #F00 ;
+			}
+			.isag-2-2{
+				width:674px;
+				height:30px;
+				background-color:#FFFF99;
+				float:left;
+				margin-left: 6px;
+
+			}
+			.isag-2-2 ul{
+				list-style: none;
+			}
+			.isag-2-2 ul li{
+				background-color:#FF9933;
+				font-size: 25px;
+				float:left;
+				margin-right: 80px;
+				margin-left: 50px;
+				font-family: 微软雅黑;
+			}
+			.isag-2-2 ul li a{
+				text-decoration: none;
+				color:black;
+				font-size: 15px;
+			}
+			.isag-3{
+				width:735px;
+				height:180px;
+				float:left;
+				margin-top:30px;
+				background-color:#FFFF99;
+
+			}
+			.isag-3-1{
+				width:250px;
+				height:180px;
+				float: left;
+				background-color:#FFCC33;
+				
+			}
+			.isag-3-1 img{
+				width:110px;
+				height:120px;
+				float:left;
+				margin-left: 10px;
+				margin-top: 30px;
+				border:5px dashed white;
+			}
+			.isag-3-1 span{
+				width:110px;
+				float:right;
+				font-family: 微软雅黑;
+				font-size: 15px;
+				margin-top:30px;
+				word-break : break-all;
+			}
+			.isag-3-2{
+				width:80px;
+				height:auto;
+				font-size: 18px;
+				background-color:#FFCC33;
+				float:left;
+				text-align: center;
+				position:relative;
+				left:25px;
+				top:60px;
+			}
+			.isag-3-3{
+				width:80px;
+				height:auto;
+				font-size: 18px;
+				background-color:#FFCC33;
+				float:left;
+				text-align: center;
+				position:relative;
+				left:100px;
+				top:60px;
+			}
+
+			.isag-3-4{
+				width:80px;
+				height:auto;
+				font-size: 18px;
+				background-color:#FFCC33;
+				float:left;
+				text-align: center;
+				position:relative;
+				left:180px;
+				top:60px;
+			}
+			.isag-4{
+				width:735px;
+				height:50px;
+				background-color:#FFFF99;
+				float:left;
+				margin-top:40px;
+			}
+			.isag-4-1{
+				width:50px;
+				height:30px;
+				float:left;
+				font-size:15px;
+				margin-top: 7px;
+				font-family: 微软雅黑;
+				background-color:#FFFF99;
+				border:1px dashed #F00 ;
+			}
+			.isag-4-2{
+				width:100px;
+				height:auto;
+				font-size: 20px;
+				float: left;
+				font-family: 微软雅黑;
+				font-weight: bold;
+				color:red;
+				position: relative;
+				left:50px;
+				top:10px;			
+			}
+			.isag-4-2 a{
+				color:red;
+			}
+			.isag-4-3{
+				width:150px;
+				height:auto;
+				font-size: 18px;
+				font-family: 微软雅黑;
+				font-weight: bold;
+				color:red;
+				float: left;
+				position: relative;
+				left:50px;
+				top:10px;	
+			}
+			.isag-4-3 a{
+				color:red;
+			}
+			.isag-4-4{
+				width:80px;
+				height:50px;
+				float: left;
+				background-color: orange;
+				position: relative;
+				left:345px;
+				top:0px;	
+			}
+			.isag-4-4 span{
+				width:80px;
+				text-align: center;
+				font-size: 22px;
+				font-family: 微软雅黑;
+				font-weight: bold;
+				color:white;
+				float: left;
+				position: relative;
+				left:0px;
+				top:10px;
+			}
+
+#footer {
+width:100%;
+height:252px;
+background:url(../img/footer.png);
+clear:both}		
+	
+.footer {
+width:960px;
+margin:0 auto;
+position:relative;
+height:252px}
+
+.footer #fmenu {
+border-bottom:1px dashed #c8c8c8;
+height:47px}
+
+.footer #fmenu li {float:left}
+
+.footer #fmenu li a {
+display:block;
+padding:15px 15px;
+color:#676767;
+font-size:13px}
+
+.footer #fmenu li a:hover , .footer #fkategori li a:hover{
+color:#333;
+text-shadow:1px 0 #fff}
+
+.footer #fkategori {}
+
+.footer #fkategori li {
+float:left;
+margin:10px 0 3px 0;}
+
+.footer #fkategori li a {
+color:#7a7979;
+font-size:11px;
+padding:0 10px;
+background:url(../img/cizgi.png) no-repeat right}
+	
+#footerlogo {
+width:278px;
+height:69px;
+position:absolute;
+bottom:0;
+left:38%}
+					
+					
+					
+					
+					
+					
+					

@@ -42,5 +42,6 @@ public interface IUserService {
 	public Boolean login(String userName,String password) throws Exception;
 	
 	public Boolean isAdmin(String userName) throws SQLException ;
+	public List<User> getpersonInformation(int uid) throws Exception;
 	
 }
